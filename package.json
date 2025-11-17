@@ -36,5 +36,9 @@
     "vite": "^5.4.11",
     "vite-plugin-image-optimizer": "^1.1.6",
     "zip-dir": "^2.0.0"
+  },
+  "dependencies": {
+    "ffmpeg": "^0.0.4",
+    "zh": "^0.0.0"
   }
 }

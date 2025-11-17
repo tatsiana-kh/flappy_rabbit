@@ -19,6 +19,8 @@ if (!fs.existsSync('./tsconfig.json')) {
 }
 
 fs.cpSync('./thing-editor/demo/example-project', './games/example-project', {recursive: true, force: false});
+fs.cpSync('./thing-editor/demo/dear-project', './games/dear-project', {recursive: true, force: false});
+
 fs.cpSync('./thing-editor/demo/example-lib', './libs/example-lib', {recursive: true, force: false});
 
 if (!fs.existsSync('./thing-editor/src/editor/current-classes-typings.ts')) {
