@@ -1,0 +1,147 @@
+{
+	"c": "BunnyGameSceneLogic",
+	"p": {
+		"name": "bunnyscene",
+		"backgroundColor": 159339
+	},
+	":": [
+		{
+			"c": "BackgroundSpawner",
+			"p": {
+				"name": "background",
+				"image": "sky.png"
+			},
+			":": [
+				{
+					"c": "BackgroundPiece",
+					"p": {
+						"x": -434
+					},
+					":": [
+						{
+							"c": "Sprite",
+							"p": {
+								"image": "sky.png"
+							}
+						},
+						{
+							"c": "Sprite",
+							"p": {
+								"y": 1024,
+								"image": "sky.png"
+							}
+						}
+					]
+				},
+				{
+					"c": "BackgroundPiece",
+					"p": {
+						"x": 580
+					},
+					":": [
+						{
+							"c": "Sprite",
+							"p": {
+								"image": "sky.png"
+							}
+						},
+						{
+							"c": "Sprite",
+							"p": {
+								"y": 1024,
+								"image": "sky.png"
+							}
+						}
+					]
+				},
+				{
+					"c": "BackgroundPiece",
+					"p": {
+						"x": 1604
+					},
+					":": [
+						{
+							"c": "Sprite",
+							"p": {
+								"image": "sky.png"
+							}
+						},
+						{
+							"c": "Sprite",
+							"p": {
+								"y": 1024,
+								"image": "sky.png"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"c": "PipeSpawner",
+			"p": {
+				"name": "pipes",
+				"x": -385,
+				"y": -123,
+				"pipePath": "pipes"
+			}
+		},
+		{
+			"c": "Text",
+			"p": {
+				"name": "counterLabel",
+				"x": 874,
+				"y": 90,
+				"tint": 0,
+				"text": "",
+				"translatableText": "example_title",
+				"style.fontSize": 51,
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1"
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 628,
+				"y": 562,
+				"interactive": true,
+				"scale.x": 1.6,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "Text",
+			"p": {
+				"name": "GameOverText",
+				"x": 545,
+				"y": 809,
+				"alpha": 0,
+				"scale.x": 5,
+				"scale.y": 5,
+				"tint": 0,
+				"text": "",
+				"translatableText": "gameOver",
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1"
+			}
+		},
+		{
+			"c": "Text",
+			"p": {
+				"name": "counterText",
+				"x": 1080,
+				"y": 90,
+				"tint": 0,
+				"text": "",
+				"translatableText": "counter",
+				"style.fontSize": 51,
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1"
+			}
+		}
+	]
+}

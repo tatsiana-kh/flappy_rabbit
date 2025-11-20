@@ -1,0 +1,991 @@
+{
+	"c": "Scene",
+	"p": {
+		"name": "main",
+		"interactive": true,
+		"__description": "",
+		"backgroundColor": 276
+	},
+	":": [
+		{
+			"c": "Text",
+			"p": {
+				"x": 874,
+				"y": 98,
+				"text": "",
+				"translatableText": "example_title",
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1"
+			}
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"visible": false,
+				"timeline": {
+					"l": {},
+					"p": 0.02,
+					"d": 0.85,
+					"f": [
+						{
+							"n": "image",
+							"t": [
+								{
+									"v": "symbols/fuel0000.png",
+									"t": 0,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 2,
+									"m": 2
+								},
+								{
+									"v": "bunny.png",
+									"t": 4,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 6,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 8,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 10,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 12,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 14,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 16,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 18,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 20,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 22,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 24,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 26,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0014.png",
+									"t": 28,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 30,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 32,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 34,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 36,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 38,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 40,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 42,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 44,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 46,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 48,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 50,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0002.png",
+									"t": 52,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 54,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0000.png",
+									"t": 56,
+									"m": 2,
+									"j": 0
+								}
+							]
+						},
+						{
+							"n": "x",
+							"t": [
+								{
+									"v": 442,
+									"t": 0
+								},
+								{
+									"v": 714,
+									"t": 179,
+									"r": -418
+								},
+								{
+									"v": 1273,
+									"t": 293,
+									"j": 0,
+									"r": -418
+								}
+							]
+						},
+						{
+							"n": "y",
+							"t": [
+								{
+									"v": 577,
+									"t": 0
+								},
+								{
+									"v": 359,
+									"t": 105,
+									"r": -418
+								},
+								{
+									"v": 807,
+									"t": 221,
+									"j": 0,
+									"r": -418
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 646,
+				"y": 559,
+				"interactive": true,
+				"scale.x": 1.6,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"timeline": {
+					"l": {},
+					"p": 0.02,
+					"d": 0.85,
+					"f": [
+						{
+							"n": "image",
+							"t": [
+								{
+									"v": "bunny.png",
+									"t": 0,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 2,
+									"m": 2
+								},
+								{
+									"v": "bunny.png",
+									"t": 4,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 6,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 8,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 10,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 12,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 14,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 16,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 18,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 20,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 22,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 24,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 26,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0014.png",
+									"t": 28,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 30,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 32,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 34,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 36,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 38,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 40,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 42,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 44,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 46,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 48,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 50,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0002.png",
+									"t": 52,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 54,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0000.png",
+									"t": 56,
+									"m": 2,
+									"j": 0
+								}
+							]
+						},
+						{
+							"n": "x",
+							"t": [
+								{
+									"v": 442,
+									"t": 0
+								},
+								{
+									"v": 714,
+									"t": 179,
+									"r": -418
+								},
+								{
+									"v": 1273,
+									"t": 293,
+									"j": 0,
+									"r": -418
+								}
+							]
+						},
+						{
+							"n": "y",
+							"t": [
+								{
+									"v": 577,
+									"t": 0
+								},
+								{
+									"v": 359,
+									"t": 105,
+									"r": -418
+								},
+								{
+									"v": 807,
+									"t": 221,
+									"j": 0,
+									"r": -418
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 646,
+				"y": 559,
+				"visible": false,
+				"scale.x": 1.6,
+				"image": "bunny.png"
+			},
+			":": [
+				{
+					"c": "Bunny",
+					"p": {
+						"x": 219,
+						"y": -595,
+						"rotation": -3.14,
+						"interactive": true,
+						"scale.x": 1.6,
+						"scale.y": 15,
+						"image": "bunny.png"
+					}
+				},
+				{
+					"c": "Bunny",
+					"p": {
+						"x": 219,
+						"y": 670,
+						"interactive": true,
+						"scale.x": 1.6,
+						"scale.y": 15,
+						"image": "bunny.png"
+					}
+				}
+			]
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"timeline": {
+					"l": {},
+					"p": 0.02,
+					"d": 0.85,
+					"f": [
+						{
+							"n": "x",
+							"t": [
+								{
+									"v": 1955,
+									"t": 0,
+									"m": 1
+								},
+								{
+									"v": 442,
+									"t": 222,
+									"m": 1
+								}
+							]
+						},
+						{
+							"n": "y",
+							"t": [
+								{
+									"v": 577,
+									"t": 0
+								}
+							]
+						},
+						{
+							"n": "image",
+							"t": [
+								{
+									"v": "wall.png",
+									"t": 0,
+									"m": 2
+								},
+								{
+									"v": "wall.png",
+									"t": 222,
+									"m": 2
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"name": "sky",
+				"x": -529,
+				"y": 580,
+				"alpha": 0,
+				"visible": false,
+				"image": "sky.png",
+				"tint": 16185078,
+				"timeline": {
+					"l": {
+						"step0": 1080,
+						"step1": 362,
+						"step2": 722
+					},
+					"p": 0.02,
+					"d": 0.85,
+					"f": []
+				}
+			},
+			":": [
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "1",
+						"y": 580,
+						"image": "sky.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 1024,
+											"t": 0
+										},
+										{
+											"v": 0,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 3072,
+											"t": 361,
+											"m": 1
+										},
+										{
+											"v": 2048,
+											"t": 726,
+											"m": 1
+										},
+										{
+											"v": 1024,
+											"t": 1080,
+											"m": 1,
+											"j": 0
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "2",
+						"y": 580,
+						"image": "sky.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 2048,
+											"t": 0
+										},
+										{
+											"v": 1024,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 0,
+											"t": 717,
+											"m": 1
+										},
+										{
+											"v": 3072,
+											"t": 720,
+											"m": 2
+										},
+										{
+											"v": 2048,
+											"t": 1080,
+											"m": 1,
+											"j": 0
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "3",
+						"scale.x": 1.0400000000000007,
+						"image": "sky.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 3072,
+											"t": 0
+										},
+										{
+											"v": 2048,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 1024,
+											"t": 720,
+											"m": 1
+										},
+										{
+											"v": 0,
+											"t": 1080,
+											"m": 1
+										},
+										{
+											"v": 3072,
+											"t": 1081,
+											"m": 2,
+											"j": 0
+										}
+									]
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"name": "sky",
+				"x": -529,
+				"y": 548,
+				"alpha": 0,
+				"visible": false,
+				"scale.y": 1.07,
+				"image": "sky.png",
+				"tint": 16185078,
+				"timeline": {
+					"l": {
+						"step0": 1080,
+						"step1": 362,
+						"step2": 722
+					},
+					"p": 0.02,
+					"d": 0.85,
+					"f": []
+				}
+			},
+			":": [
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "1",
+						"y": 548,
+						"alpha": 0,
+						"visible": false,
+						"scale.y": 1.07,
+						"image": "sky1.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 1020,
+											"t": 0
+										},
+										{
+											"v": 0,
+											"t": 359,
+											"m": 1
+										},
+										{
+											"v": 3060,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 2040,
+											"t": 720,
+											"m": 1
+										},
+										{
+											"v": 1020,
+											"t": 1080,
+											"m": 1,
+											"j": 0
+										}
+									]
+								},
+								{
+									"n": "scale.x",
+									"t": [
+										{
+											"v": 1,
+											"t": 0
+										},
+										{
+											"v": 1.04,
+											"t": 718
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "2",
+						"image": "sky1.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 2040,
+											"t": 0
+										},
+										{
+											"v": 1020,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 0,
+											"t": 719,
+											"m": 1
+										},
+										{
+											"v": 3060,
+											"t": 720,
+											"m": 2
+										},
+										{
+											"v": 2040,
+											"t": 1080,
+											"m": 1,
+											"j": 0
+										}
+									]
+								},
+								{
+									"n": "scale.x",
+									"t": [
+										{
+											"v": 1,
+											"t": 0
+										},
+										{
+											"v": 1.04,
+											"t": 718
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "3",
+						"y": 548,
+						"alpha": 0,
+						"visible": false,
+						"scale.y": 1.07,
+						"image": "sky1.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 3060,
+											"t": 0
+										},
+										{
+											"v": 2040,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 1020,
+											"t": 720,
+											"m": 1
+										},
+										{
+											"v": 0,
+											"t": 1079,
+											"m": 1
+										},
+										{
+											"v": 3060,
+											"t": 1080,
+											"m": 2,
+											"j": 0
+										}
+									]
+								},
+								{
+									"n": "scale.x",
+									"t": [
+										{
+											"v": 1,
+											"t": 0
+										},
+										{
+											"v": 1.04,
+											"t": 718
+										}
+									]
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"c": "BackgroundSpawner",
+			"p": {
+				"name": "background",
+				"image": "sky.png"
+			},
+			":": [
+				{
+					"c": "BackgroundPiece",
+					"p": {
+						"x": -434
+					},
+					":": [
+						{
+							"c": "Sprite",
+							"p": {
+								"image": "sky.png"
+							}
+						},
+						{
+							"c": "Sprite",
+							"p": {
+								"y": 1024,
+								"image": "sky.png"
+							}
+						}
+					]
+				},
+				{
+					"c": "BackgroundPiece",
+					"p": {
+						"x": 580
+					},
+					":": [
+						{
+							"c": "Sprite",
+							"p": {
+								"image": "sky.png"
+							}
+						},
+						{
+							"c": "Sprite",
+							"p": {
+								"y": 1024,
+								"image": "sky.png"
+							}
+						}
+					]
+				},
+				{
+					"c": "BackgroundPiece",
+					"p": {
+						"x": 1604
+					},
+					":": [
+						{
+							"c": "Sprite",
+							"p": {
+								"image": "sky.png"
+							}
+						},
+						{
+							"c": "Sprite",
+							"p": {
+								"y": 1024,
+								"image": "sky.png"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"c": "Resizer",
+			"p": {
+				"name": "resizer",
+				"visible": false,
+				"scale.x": 3,
+				"scale.y": 2
+			},
+			":": [
+				{
+					"c": "Fill",
+					"p": {
+						"name": "background",
+						"visible": false,
+						"image": "sky.png",
+						"tint": 16777215,
+						"blendMode": 0,
+						"xRepeat": 3,
+						"yRepeat": 2,
+						"xShiftSpeed": 0.01
+					}
+				}
+			]
+		}
+	]
+}

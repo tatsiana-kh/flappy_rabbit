@@ -1,0 +1,19 @@
+{
+	"defaultFont": "Roboto, Arial",
+	"version": "0.0.9",
+	"loadOnDemandTextures": {
+		"sky.png": 8
+	},
+	"__group": "thing-editor-demos",
+	"__loadOnDemandTexturesFolders": {
+		"ondemand": 2
+	},
+	"id": "flappy-dear.pixel-cave.com",
+	"title": "Flappy dear",
+	"icon": "assets/bunny.png",
+	"libs": [
+		"example-lib"
+	],
+	"autoFullscreenDesktop": true,
+	"autoFullscreenMobile": false
+}

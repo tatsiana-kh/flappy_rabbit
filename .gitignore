@@ -5,7 +5,7 @@ node_modules
 
 *.config.js.timestamp-*.mjs
 
-/games
+
 /libs
 
 /thing-editor/src/editor/localization-typings.ts

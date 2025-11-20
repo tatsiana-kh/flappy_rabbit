@@ -1,0 +1,38 @@
+{
+	"c": "Container",
+	"p": {
+		"name": "pipe",
+		"x": 969,
+		"y": 246,
+		"rotation": 3.141592653589793
+	},
+	":": [
+		{
+			"c": "Shape",
+			"p": {
+				"x": -60,
+				"width": 120,
+				"height": 20,
+				"shapeFillColor": 7396430
+			}
+		},
+		{
+			"c": "Shape",
+			"p": {
+				"pivot.x": 50,
+				"height": 700,
+				"shapeFillColor": 7396430
+			}
+		},
+		{
+			"c": "Shape",
+			"p": {
+				"x": -25,
+				"y": 10,
+				"width": 50,
+				"height": 680,
+				"shapeFillColor": 9624654
+			}
+		}
+	]
+}

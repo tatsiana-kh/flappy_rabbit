@@ -1,0 +1,16 @@
+{
+	"defaultFont": "Roboto, Arial",
+	"version": "0.0.9",
+	"__group": "thing-editor-demos",
+	"__loadOnDemandTexturesFolders": {
+		"ondemand": 2
+	},
+	"id": "thing-project-example.pixel-cave.com",
+	"title": "thing-project-example",
+	"icon": "assets/bunny.png",
+	"libs": [
+		"example-lib"
+	],
+	"autoFullscreenDesktop": false,
+	"autoFullscreenMobile": false
+}
