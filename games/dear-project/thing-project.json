@@ -1,5 +1,6 @@
 {
 	"defaultFont": "Roboto, Arial",
+	"screenOrientation": "auto",
 	"version": "0.0.9",
 	"loadOnDemandTextures": {
 		"sky.png": 8

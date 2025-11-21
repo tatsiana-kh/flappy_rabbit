@@ -47,18 +47,19 @@ games/dear-project/assets/bunnyscene.s.json
 games/dear-project/assets/l18n/en.l.json
 games/dear-project/assets/l18n/ru.l.json
 games/dear-project/assets/main.s.json
+games/dear-project/assets/newscene.s.json
 games/dear-project/assets/pipe.p.json
 games/dear-project/assets/pipes.p.json
 games/dear-project/assets/sky.png
 games/dear-project/assets/sky1.png
 games/dear-project/assets/sky2.png
-games/dear-project/assets/src/custom/background-piece.c.ts
-games/dear-project/assets/src/custom/background-spawner.c.ts
+games/dear-project/assets/src/custom/bunny-game-scene-logic.c.ts
 games/dear-project/assets/src/custom/bunny.c.ts
-games/dear-project/assets/src/custom/BunnyGameSceneLogic.c.ts
+games/dear-project/assets/src/custom/dynamic-fill.c.ts
+games/dear-project/assets/src/custom/dynamic-text.c.ts
 games/dear-project/assets/src/custom/game-config.ts
 games/dear-project/assets/src/custom/pipe-spawner.c.ts
-games/dear-project/assets/src/custom/PipesContaner.c.ts
+games/dear-project/assets/src/custom/pipes-contaner.c.ts
 games/dear-project/assets/src/index.ts
 games/dear-project/assets/wall.png
 games/dear-project/thing-project.json
@@ -557,2023 +558,6 @@ This section contains the contents of the repository's files.
     "no-useless-escape": 0,
     "@typescript-eslint/no-explicit-any": 0
   }
-}
-</file>
-
-<file path="games/dear-project/assets/bunnyscene.s.json">
-{
-	"c": "BunnyGameSceneLogic",
-	"p": {
-		"name": "bunnyscene",
-		"backgroundColor": 159339
-	},
-	":": [
-		{
-			"c": "BackgroundSpawner",
-			"p": {
-				"name": "background",
-				"image": "sky.png"
-			}
-		},
-		{
-			"c": "PipeSpawner",
-			"p": {
-				"name": "pipes",
-				"x": -385,
-				"y": -123,
-				"spownTime": 50,
-				"pipePath": "pipes",
-				"spownPointX": 2500
-			}
-		},
-		{
-			"c": "Text",
-			"p": {
-				"name": "counterLabel",
-				"x": 874,
-				"y": 90,
-				"tint": 0,
-				"text": "",
-				"translatableText": "example_title",
-				"style.fontSize": 51,
-				"style.align": "left",
-				"verticalAlign": "top",
-				"style.fill": "#9fafc1"
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 628,
-				"y": 562,
-				"interactive": true,
-				"scale.x": 1.6,
-				"image": "bunny.png"
-			}
-		},
-		{
-			"c": "Text",
-			"p": {
-				"name": "GameOverText",
-				"x": 545,
-				"y": 809,
-				"alpha": 0,
-				"scale.x": 5,
-				"scale.y": 5,
-				"tint": 0,
-				"text": "",
-				"translatableText": "gameOver",
-				"style.align": "left",
-				"verticalAlign": "top",
-				"style.fill": "#9fafc1"
-			}
-		},
-		{
-			"c": "Text",
-			"p": {
-				"name": "counterText",
-				"x": 1080,
-				"y": 90,
-				"tint": 0,
-				"text": "",
-				"translatableText": "counter",
-				"style.fontSize": 51,
-				"style.align": "left",
-				"verticalAlign": "top",
-				"style.fill": "#9fafc1"
-			}
-		}
-	]
-}
-</file>
-
-<file path="games/dear-project/assets/l18n/en.l.json">
-{
-	"example_title": "Счетчик:",
-	"gameOver": "Увы, игра закончена.",
-	"counter": "0"
-}
-</file>
-
-<file path="games/dear-project/assets/l18n/ru.l.json">
-{
-	"example_title": "Counter:",
-	"gameOver": "Oops, game over.",
-	"counter": "0"
-}
-</file>
-
-<file path="games/dear-project/assets/main.s.json">
-{
-	"c": "Scene",
-	"p": {
-		"name": "main",
-		"interactive": true,
-		"__description": "",
-		"backgroundColor": 276
-	},
-	":": [
-		{
-			"c": "Text",
-			"p": {
-				"x": 874,
-				"y": 98,
-				"text": "",
-				"translatableText": "example_title",
-				"style.align": "left",
-				"verticalAlign": "top",
-				"style.fill": "#9fafc1"
-			}
-		},
-		{
-			"c": "MovieClip",
-			"p": {
-				"visible": false,
-				"timeline": {
-					"l": {},
-					"p": 0.02,
-					"d": 0.85,
-					"f": [
-						{
-							"n": "image",
-							"t": [
-								{
-									"v": "symbols/fuel0000.png",
-									"t": 0,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0001.png",
-									"t": 2,
-									"m": 2
-								},
-								{
-									"v": "bunny.png",
-									"t": 4,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0003.png",
-									"t": 6,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0004.png",
-									"t": 8,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0005.png",
-									"t": 10,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0006.png",
-									"t": 12,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0007.png",
-									"t": 14,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0008.png",
-									"t": 16,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0009.png",
-									"t": 18,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0010.png",
-									"t": 20,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0011.png",
-									"t": 22,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0012.png",
-									"t": 24,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0013.png",
-									"t": 26,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0014.png",
-									"t": 28,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0013.png",
-									"t": 30,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0012.png",
-									"t": 32,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0011.png",
-									"t": 34,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0010.png",
-									"t": 36,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0009.png",
-									"t": 38,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0008.png",
-									"t": 40,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0007.png",
-									"t": 42,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0006.png",
-									"t": 44,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0005.png",
-									"t": 46,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0004.png",
-									"t": 48,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0003.png",
-									"t": 50,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0002.png",
-									"t": 52,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0001.png",
-									"t": 54,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0000.png",
-									"t": 56,
-									"m": 2,
-									"j": 0
-								}
-							]
-						},
-						{
-							"n": "x",
-							"t": [
-								{
-									"v": 442,
-									"t": 0
-								},
-								{
-									"v": 714,
-									"t": 179,
-									"r": -418
-								},
-								{
-									"v": 1273,
-									"t": 293,
-									"j": 0,
-									"r": -418
-								}
-							]
-						},
-						{
-							"n": "y",
-							"t": [
-								{
-									"v": 577,
-									"t": 0
-								},
-								{
-									"v": 359,
-									"t": 105,
-									"r": -418
-								},
-								{
-									"v": 807,
-									"t": 221,
-									"j": 0,
-									"r": -418
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 646,
-				"y": 559,
-				"interactive": true,
-				"scale.x": 1.6,
-				"image": "bunny.png"
-			}
-		},
-		{
-			"c": "MovieClip",
-			"p": {
-				"timeline": {
-					"l": {},
-					"p": 0.02,
-					"d": 0.85,
-					"f": [
-						{
-							"n": "image",
-							"t": [
-								{
-									"v": "bunny.png",
-									"t": 0,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0001.png",
-									"t": 2,
-									"m": 2
-								},
-								{
-									"v": "bunny.png",
-									"t": 4,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0003.png",
-									"t": 6,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0004.png",
-									"t": 8,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0005.png",
-									"t": 10,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0006.png",
-									"t": 12,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0007.png",
-									"t": 14,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0008.png",
-									"t": 16,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0009.png",
-									"t": 18,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0010.png",
-									"t": 20,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0011.png",
-									"t": 22,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0012.png",
-									"t": 24,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0013.png",
-									"t": 26,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0014.png",
-									"t": 28,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0013.png",
-									"t": 30,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0012.png",
-									"t": 32,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0011.png",
-									"t": 34,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0010.png",
-									"t": 36,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0009.png",
-									"t": 38,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0008.png",
-									"t": 40,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0007.png",
-									"t": 42,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0006.png",
-									"t": 44,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0005.png",
-									"t": 46,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0004.png",
-									"t": 48,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0003.png",
-									"t": 50,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0002.png",
-									"t": 52,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0001.png",
-									"t": 54,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0000.png",
-									"t": 56,
-									"m": 2,
-									"j": 0
-								}
-							]
-						},
-						{
-							"n": "x",
-							"t": [
-								{
-									"v": 442,
-									"t": 0
-								},
-								{
-									"v": 714,
-									"t": 179,
-									"r": -418
-								},
-								{
-									"v": 1273,
-									"t": 293,
-									"j": 0,
-									"r": -418
-								}
-							]
-						},
-						{
-							"n": "y",
-							"t": [
-								{
-									"v": 577,
-									"t": 0
-								},
-								{
-									"v": 359,
-									"t": 105,
-									"r": -418
-								},
-								{
-									"v": 807,
-									"t": 221,
-									"j": 0,
-									"r": -418
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 646,
-				"y": 559,
-				"visible": false,
-				"scale.x": 1.6,
-				"image": "bunny.png"
-			},
-			":": [
-				{
-					"c": "Bunny",
-					"p": {
-						"x": 219,
-						"y": -595,
-						"rotation": -3.14,
-						"interactive": true,
-						"scale.x": 1.6,
-						"scale.y": 15,
-						"image": "bunny.png"
-					}
-				},
-				{
-					"c": "Bunny",
-					"p": {
-						"x": 219,
-						"y": 670,
-						"interactive": true,
-						"scale.x": 1.6,
-						"scale.y": 15,
-						"image": "bunny.png"
-					}
-				}
-			]
-		},
-		{
-			"c": "MovieClip",
-			"p": {
-				"timeline": {
-					"l": {},
-					"p": 0.02,
-					"d": 0.85,
-					"f": [
-						{
-							"n": "x",
-							"t": [
-								{
-									"v": 1955,
-									"t": 0,
-									"m": 1
-								},
-								{
-									"v": 442,
-									"t": 222,
-									"m": 1
-								}
-							]
-						},
-						{
-							"n": "y",
-							"t": [
-								{
-									"v": 577,
-									"t": 0
-								}
-							]
-						},
-						{
-							"n": "image",
-							"t": [
-								{
-									"v": "wall.png",
-									"t": 0,
-									"m": 2
-								},
-								{
-									"v": "wall.png",
-									"t": 222,
-									"m": 2
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"c": "MovieClip",
-			"p": {
-				"name": "sky",
-				"x": -529,
-				"y": 580,
-				"alpha": 0,
-				"visible": false,
-				"image": "sky.png",
-				"tint": 16185078,
-				"timeline": {
-					"l": {
-						"step0": 1080,
-						"step1": 362,
-						"step2": 722
-					},
-					"p": 0.02,
-					"d": 0.85,
-					"f": []
-				}
-			},
-			":": [
-				{
-					"c": "MovieClip",
-					"p": {
-						"name": "1",
-						"y": 580,
-						"image": "sky.png",
-						"tint": 16185078,
-						"timeline": {
-							"l": {},
-							"p": 0.02,
-							"d": 0.85,
-							"f": [
-								{
-									"n": "x",
-									"t": [
-										{
-											"v": 1024,
-											"t": 0
-										},
-										{
-											"v": 0,
-											"t": 360,
-											"m": 1
-										},
-										{
-											"v": 3072,
-											"t": 361,
-											"m": 1
-										},
-										{
-											"v": 2048,
-											"t": 726,
-											"m": 1
-										},
-										{
-											"v": 1024,
-											"t": 1080,
-											"m": 1,
-											"j": 0
-										}
-									]
-								}
-							]
-						}
-					}
-				},
-				{
-					"c": "MovieClip",
-					"p": {
-						"name": "2",
-						"y": 580,
-						"image": "sky.png",
-						"tint": 16185078,
-						"timeline": {
-							"l": {},
-							"p": 0.02,
-							"d": 0.85,
-							"f": [
-								{
-									"n": "x",
-									"t": [
-										{
-											"v": 2048,
-											"t": 0
-										},
-										{
-											"v": 1024,
-											"t": 360,
-											"m": 1
-										},
-										{
-											"v": 0,
-											"t": 717,
-											"m": 1
-										},
-										{
-											"v": 3072,
-											"t": 720,
-											"m": 2
-										},
-										{
-											"v": 2048,
-											"t": 1080,
-											"m": 1,
-											"j": 0
-										}
-									]
-								}
-							]
-						}
-					}
-				},
-				{
-					"c": "MovieClip",
-					"p": {
-						"name": "3",
-						"scale.x": 1.0400000000000007,
-						"image": "sky.png",
-						"tint": 16185078,
-						"timeline": {
-							"l": {},
-							"p": 0.02,
-							"d": 0.85,
-							"f": [
-								{
-									"n": "x",
-									"t": [
-										{
-											"v": 3072,
-											"t": 0
-										},
-										{
-											"v": 2048,
-											"t": 360,
-											"m": 1
-										},
-										{
-											"v": 1024,
-											"t": 720,
-											"m": 1
-										},
-										{
-											"v": 0,
-											"t": 1080,
-											"m": 1
-										},
-										{
-											"v": 3072,
-											"t": 1081,
-											"m": 2,
-											"j": 0
-										}
-									]
-								}
-							]
-						}
-					}
-				}
-			]
-		},
-		{
-			"c": "MovieClip",
-			"p": {
-				"name": "sky",
-				"x": -529,
-				"y": 548,
-				"alpha": 0,
-				"visible": false,
-				"scale.y": 1.07,
-				"image": "sky.png",
-				"tint": 16185078,
-				"timeline": {
-					"l": {
-						"step0": 1080,
-						"step1": 362,
-						"step2": 722
-					},
-					"p": 0.02,
-					"d": 0.85,
-					"f": []
-				}
-			},
-			":": [
-				{
-					"c": "MovieClip",
-					"p": {
-						"name": "1",
-						"y": 548,
-						"alpha": 0,
-						"visible": false,
-						"scale.y": 1.07,
-						"image": "sky1.png",
-						"tint": 16185078,
-						"timeline": {
-							"l": {},
-							"p": 0.02,
-							"d": 0.85,
-							"f": [
-								{
-									"n": "x",
-									"t": [
-										{
-											"v": 1020,
-											"t": 0
-										},
-										{
-											"v": 0,
-											"t": 359,
-											"m": 1
-										},
-										{
-											"v": 3060,
-											"t": 360,
-											"m": 1
-										},
-										{
-											"v": 2040,
-											"t": 720,
-											"m": 1
-										},
-										{
-											"v": 1020,
-											"t": 1080,
-											"m": 1,
-											"j": 0
-										}
-									]
-								},
-								{
-									"n": "scale.x",
-									"t": [
-										{
-											"v": 1,
-											"t": 0
-										},
-										{
-											"v": 1.04,
-											"t": 718
-										}
-									]
-								}
-							]
-						}
-					}
-				},
-				{
-					"c": "MovieClip",
-					"p": {
-						"name": "2",
-						"image": "sky1.png",
-						"tint": 16185078,
-						"timeline": {
-							"l": {},
-							"p": 0.02,
-							"d": 0.85,
-							"f": [
-								{
-									"n": "x",
-									"t": [
-										{
-											"v": 2040,
-											"t": 0
-										},
-										{
-											"v": 1020,
-											"t": 360,
-											"m": 1
-										},
-										{
-											"v": 0,
-											"t": 719,
-											"m": 1
-										},
-										{
-											"v": 3060,
-											"t": 720,
-											"m": 2
-										},
-										{
-											"v": 2040,
-											"t": 1080,
-											"m": 1,
-											"j": 0
-										}
-									]
-								},
-								{
-									"n": "scale.x",
-									"t": [
-										{
-											"v": 1,
-											"t": 0
-										},
-										{
-											"v": 1.04,
-											"t": 718
-										}
-									]
-								}
-							]
-						}
-					}
-				},
-				{
-					"c": "MovieClip",
-					"p": {
-						"name": "3",
-						"y": 548,
-						"alpha": 0,
-						"visible": false,
-						"scale.y": 1.07,
-						"image": "sky1.png",
-						"tint": 16185078,
-						"timeline": {
-							"l": {},
-							"p": 0.02,
-							"d": 0.85,
-							"f": [
-								{
-									"n": "x",
-									"t": [
-										{
-											"v": 3060,
-											"t": 0
-										},
-										{
-											"v": 2040,
-											"t": 360,
-											"m": 1
-										},
-										{
-											"v": 1020,
-											"t": 720,
-											"m": 1
-										},
-										{
-											"v": 0,
-											"t": 1079,
-											"m": 1
-										},
-										{
-											"v": 3060,
-											"t": 1080,
-											"m": 2,
-											"j": 0
-										}
-									]
-								},
-								{
-									"n": "scale.x",
-									"t": [
-										{
-											"v": 1,
-											"t": 0
-										},
-										{
-											"v": 1.04,
-											"t": 718
-										}
-									]
-								}
-							]
-						}
-					}
-				}
-			]
-		},
-		{
-			"c": "BackgroundSpawner",
-			"p": {
-				"name": "background",
-				"image": "sky.png"
-			},
-			":": [
-				{
-					"c": "BackgroundPiece",
-					"p": {
-						"x": -434
-					},
-					":": [
-						{
-							"c": "Sprite",
-							"p": {
-								"image": "sky.png"
-							}
-						},
-						{
-							"c": "Sprite",
-							"p": {
-								"y": 1024,
-								"image": "sky.png"
-							}
-						}
-					]
-				},
-				{
-					"c": "BackgroundPiece",
-					"p": {
-						"x": 580
-					},
-					":": [
-						{
-							"c": "Sprite",
-							"p": {
-								"image": "sky.png"
-							}
-						},
-						{
-							"c": "Sprite",
-							"p": {
-								"y": 1024,
-								"image": "sky.png"
-							}
-						}
-					]
-				},
-				{
-					"c": "BackgroundPiece",
-					"p": {
-						"x": 1604
-					},
-					":": [
-						{
-							"c": "Sprite",
-							"p": {
-								"image": "sky.png"
-							}
-						},
-						{
-							"c": "Sprite",
-							"p": {
-								"y": 1024,
-								"image": "sky.png"
-							}
-						}
-					]
-				}
-			]
-		}
-	]
-}
-</file>
-
-<file path="games/dear-project/assets/pipe.p.json">
-{
-	"c": "Container",
-	"p": {
-		"name": "pipe",
-		"x": 969,
-		"y": 246,
-		"rotation": 3.141592653589793
-	},
-	":": [
-		{
-			"c": "Shape",
-			"p": {
-				"x": -60,
-				"width": 120,
-				"height": 20,
-				"shapeFillColor": 7396430
-			}
-		},
-		{
-			"c": "Shape",
-			"p": {
-				"pivot.x": 50,
-				"height": 700,
-				"shapeFillColor": 7396430
-			}
-		},
-		{
-			"c": "Shape",
-			"p": {
-				"x": -25,
-				"y": 10,
-				"width": 50,
-				"height": 680,
-				"shapeFillColor": 9624654
-			}
-		}
-	]
-}
-</file>
-
-<file path="games/dear-project/assets/pipes.p.json">
-{
-	"c": "PipesContainer",
-	"p": {
-		"name": "pipes",
-		"y": 153
-	},
-	":": [
-		{
-			"r": "pipe",
-			"p": {
-				"name": "pipe1",
-				"x": 0,
-				"y": 170
-			}
-		},
-		{
-			"r": "pipe",
-			"p": {
-				"name": "pipe2",
-				"x": 0,
-				"y": 630,
-				"rotation": 0
-			}
-		}
-	]
-}
-</file>
-
-<file path="games/dear-project/assets/src/custom/background-piece.c.ts">
-import Container from 'thing-editor/src/engine/lib/assets/src/basic/container.c';
-import type Sprite from 'thing-editor/src/engine/lib/assets/src/basic/sprite.c';
-import Lib from 'thing-editor/src/engine/lib';
-import game from 'thing-editor/src/engine/game';
-import type BackgroundSpawner from './background-spawner.c';
-import { GAME_CONFIG } from './game-config';
-
-export default class BackgroundPiece extends Container {
-
-	public speedX: number = 0;
-	public imageName: string | null = null;
-	public sprite: Sprite | null = null;
-	public pieceId: number = 0;
-	private sprites: Sprite[] = [];
-
-	init() {
-		super.init();
-	}
-
-	update() {
-		this.x += this.speedX;
-
-		const pieceWidth = this.sprite?.width || this.width || 0;
-		if (this.x <= -pieceWidth) {
-			(this.parent as BackgroundSpawner)?.registerInPool(this);
-		}
-
-		super.update();
-	}
-
-	public setImage(imageName: string | null) {
-		this.imageName = imageName;
-
-		if (this.sprites.length === 0 && imageName && Lib.hasTexture(imageName)) {
-			const texture = Lib.getTexture(imageName);
-			const imageHeight = texture.height;
-			const sceneHeight = game.H;
-
-			const spritesNeeded = Math.ceil(sceneHeight / imageHeight);
-
-			for (let i = 0; i < spritesNeeded; i++) {
-				const sprite = Lib._loadClassInstanceById('Sprite') as Sprite;
-				sprite.image = imageName;
-				sprite.y = i * imageHeight;
-				sprite.x = GAME_CONFIG.BACKGROUND.SPRITE_INITIAL_X;
-				this.addChild(sprite);
-				this.sprites.push(sprite);
-
-				if (i === 0) {
-					this.sprite = sprite;
-				}
-			}
-		}
-	}
-
-	onRemove() {
-		for (const sprite of this.sprites) {
-			this.removeChild(sprite);
-		}
-		this.sprites = [];
-		this.sprite = null;
-		super.onRemove();
-	}
-}
-</file>
-
-<file path="games/dear-project/assets/src/custom/background-spawner.c.ts">
-import editable from 'thing-editor/src/editor/props-editor/editable';
-import Container from 'thing-editor/src/engine/lib/assets/src/basic/container.c';
-import Lib from 'thing-editor/src/engine/lib';
-import game from 'thing-editor/src/engine/game';
-import BackgroundPiece from './background-piece.c';
-import { GAME_CONFIG } from './game-config';
-
-export default class BackgroundSpawner extends Container {
-
-	@editable({ type: 'image'})
-	image: string | null = null;
-
-	@editable()
-	speedX: number = GAME_CONFIG.BACKGROUND.SPEED_X;
-
-	private pool: BackgroundPiece[] = [];
-	private lastPiece: BackgroundPiece | null = null;
-	private imageWidth: number = 0;
-	private pieceId: number = 0;
-
-	init() {
-		super.init();
-
-		if (this.image && Lib.hasTexture(this.image)) {
-			const texture = Lib.getTexture(this.image);
-			this.imageWidth = texture.width;
-		}
-
-		this.spawnInitialPieces();
-	}
-
-	private spawnInitialPieces() {
-		if (!this.image || !Lib.hasTexture(this.image)) {
-			return;
-		}
-
-		const screenWidth = game.W;
-		const piecesNeeded = Math.ceil(screenWidth / this.imageWidth) + GAME_CONFIG.BACKGROUND.INITIAL_PIECES_EXTRA;
-		for (let i = 0; i < piecesNeeded; i++) {
-			const x = i * this.imageWidth;
-			const piece = this.spawn(x);
-			if (!this.lastPiece || piece.x > this.lastPiece.x) {
-				this.lastPiece = piece;
-			}
-		}
-	}
-
-	public spawn(x?: number): BackgroundPiece {
-		let piece: BackgroundPiece;
-
-		if (this.pool.length == 0) {
-			piece = Lib._loadClassInstanceById((BackgroundPiece as any).__className || 'BackgroundPiece') as BackgroundPiece;
-			piece.speedX = this.speedX;
-			piece.pieceId = this.pieceId++;
-			piece.setImage(this.image);
-		//	console.log('spawn new pieceId=' + piece.pieceId);
-		} else {
-			piece = this.pool.pop()!;
-		//	console.log('spawn from pool pieceId=' + piece.pieceId);
-		}
-
-		if (x !== undefined) {
-			piece.x = x;
-		}
-		piece.speedX = this.speedX;
-		this.addChild(piece);
-
-		return piece;
-	}
-
-	public registerInPool(piece: BackgroundPiece) {
-		piece.parent?.removeChild(piece);
-		this.pool.push(piece);
-	}
-
-	update() {
-		if (this.lastPiece) {
-			const lastPieceRightEdge = this.lastPiece.x + (this.lastPiece.sprite?.width || this.imageWidth);
-			if (lastPieceRightEdge <= game.W + GAME_CONFIG.BACKGROUND.CHECK_DISTANCE) {
-				const newPiece = this.spawn(lastPieceRightEdge);
-				this.lastPiece = newPiece;
-			}
-		} else {
-			const newPiece = this.spawn(GAME_CONFIG.BACKGROUND.INITIAL_X);
-			this.lastPiece = newPiece;
-		}
-
-		super.update();
-	}
-
-	onRemove() {
-		this.pool = [];
-		this.lastPiece = null;
-		super.onRemove();
-	}
-}
-</file>
-
-<file path="games/dear-project/assets/src/custom/bunny.c.ts">
-import editable from 'thing-editor/src/editor/props-editor/editable';
-import game from 'thing-editor/src/engine/game';
-import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
-import type BunnyGameSceneLogic from './BunnyGameSceneLogic.c';
-import { GAME_CONFIG } from './game-config';
-
-export default class Bunny extends DSprite {
-
-	@editable()
-	gravity = GAME_CONFIG.BUNNY.GRAVITY;
-
-	@editable()
-	jumpVelocity: number = GAME_CONFIG.BUNNY.JUMP_VELOCITY;
-
-	@editable()
-	forwardSpeed: number = GAME_CONFIG.BUNNY.FORWARD_SPEED;
-
-	private isAlive: boolean = true;
-
-	init() {
-		super.init();
-
-		this.x = GAME_CONFIG.BUNNY.INITIAL_X;
-		this.y = game.H * GAME_CONFIG.BUNNY.INITIAL_Y_MULTIPLIER;
-
-		this.xSpeed = GAME_CONFIG.BUNNY.INITIAL_X_SPEED;
-		this.ySpeed = GAME_CONFIG.BUNNY.INITIAL_Y_SPEED;
-		this.isAlive = true;
-
-		const stage = this.getRootContainer() as BunnyGameSceneLogic;
-
-		if (stage) {
-			stage.interactive = true;
-		}
-		stage.onMouseDown = this.onJump.bind(this);
-	}
-
-	onJump() {
-		if (this.isAlive) {
-			this.ySpeed += GAME_CONFIG.BUNNY.JUMP_VELOCITY;
-		}
-	}
-
-	update() {
-		if (!this.isAlive) {
-			return;
-		}
-
-		this.ySpeed += this.gravity * GAME_CONFIG.BUNNY.GRAVITY_MULTIPLIER;
-		const TARGET_X = game.W * GAME_CONFIG.BUNNY.TARGET_X_MULTIPLIER;
-
-		if (this.x >= TARGET_X) {
-			this.xSpeed = GAME_CONFIG.BUNNY.INITIAL_X_SPEED;
-			this.x = TARGET_X;
-		} else {
-			this.xSpeed = GAME_CONFIG.BUNNY.FORWARD_SPEED;
-		}
-
-		super.update();
-	}
-
-	onRemove() {
-		const stage = this.getRootContainer();
-		if (stage) {
-			stage.off('click', this.onJump, this);
-		}
-		super.onRemove();
-	}
-}
-</file>
-
-<file path="games/dear-project/assets/src/custom/BunnyGameSceneLogic.c.ts">
-import Scene from 'thing-editor/src/engine/lib/assets/src/basic/scene.c';
-import { GAME_CONFIG } from './game-config';
-
-export default class BunnyGameSceneLogic extends Scene {
-
-	public score: number = 0;
-	private scoreText: any = null;
-	private gameOverText: any = null;
-
-	init() {
-		super.init();
-		console.log('logic init');
-		this.score = GAME_CONFIG.SCENE.INITIAL_SCORE;
-		this.scoreText = this.findChildByName('counterText');
-		this.gameOverText = this.findChildByName('GameOverText');
-		if (this.gameOverText && this.gameOverText.text) {
-		}
-		this.updateScoreDisplay();
-	}
-
-	public increaseScore() {
-		this.score++;
-		this.updateScoreDisplay();
-	}
-
-	private updateScoreDisplay() {
-		if (this.scoreText) {
-			this.scoreText.text = `${this.score}`;
-		}
-	}
-
-	update() {
-		if (this.gameOverText.alpha == GAME_CONFIG.SCENE.GAME_OVER_ALPHA) {
-			return;
-		} else {
-			super.update();
-		}
-	}
-
-	gameOver() {
-		if (this.gameOverText) {
-			console.log('gameOverText');
-			this.gameOverText.alpha = GAME_CONFIG.SCENE.GAME_OVER_ALPHA;
-		}
-		this.onRemove();
-	}
-
-	onRemove() {
-		super.onRemove();
-	}
-}
-</file>
-
-<file path="games/dear-project/assets/src/custom/game-config.ts">
-export const GAME_CONFIG = {
-	PIPE: {
-		SPAWN_INTERVAL: 50,
-		SPAWN_POINT_X: 2400,
-		SPEED_X: -10,
-		MIN_Y: 180,
-		MAX_Y: 530,
-		OFFSET_Y: 171,
-		OBSTACLE_WIDTH_HALF: 60,
-		GAP_SIZE_HALF: 230,
-		COLLISION_RADIUS: 0,
-		RETURN_TO_POOL_X: 0,
-		GAP_MULTIPLIER: 2,
-	},
-	BUNNY: {
-		GRAVITY: 2,
-		JUMP_VELOCITY: -10,
-		FORWARD_SPEED: 2,
-		TARGET_X_MULTIPLIER: 0.5,
-		INITIAL_X: 0,
-		INITIAL_Y_MULTIPLIER: 0.5,
-		INITIAL_X_SPEED: 0,
-		INITIAL_Y_SPEED: 0,
-		GRAVITY_MULTIPLIER: 0.1,
-	},
-	BACKGROUND: {
-		SPEED_X: -10,
-		CHECK_DISTANCE: 100,
-		INITIAL_PIECES_EXTRA: 1,
-		INITIAL_X: 0,
-		SPRITE_INITIAL_X: 0,
-	},
-	SCENE: {
-		INITIAL_SCORE: 0,
-		GAME_OVER_ALPHA: 1,
-	},
-	COLLISION: {
-		EPSILON: 0.01,
-	},
-} as const;
-</file>
-
-<file path="games/dear-project/assets/src/custom/pipe-spawner.c.ts">
-// this class generated with Thing-Editor's component's Wizard,
-// and contain basic game-object's methods.
-// For details: https://github.com/Megabyteceer/thing-editor/wiki/Custom-Components#custom-component-methods
-
-import editable from 'thing-editor/src/editor/props-editor/editable';
-import Container from 'thing-editor/src/engine/lib/assets/src/basic/container.c';
-import type PipesContainer from './PipesContaner.c';
-import Lib from 'thing-editor/src/engine/lib';
-import game from 'thing-editor/src/engine/game';
-import Bunny from './bunny.c';
-import type BunnyGameSceneLogic from './BunnyGameSceneLogic.c';
-import { GAME_CONFIG } from './game-config';
-
-export default class PipeSpawner extends Container {
-
-	@editable()
-	spawnTime: number = GAME_CONFIG.PIPE.SPAWN_INTERVAL;
-
-	@editable({ type: 'prefab'})
-	pipePath: string | null = null;
-
-	@editable()
-	spawnPointX: number = GAME_CONFIG.PIPE.SPAWN_POINT_X;
-
-	private pool: PipesContainer[] = [];
-
-	private startTime: number = 0;
-	private bunny: Bunny | null = null;
-	private gameScene: BunnyGameSceneLogic | null = null;
-	private pipeId: number = 0;
-
-	init() {
-		super.init();
-		//	console.log('path = ' + this.pipePath + ' x=' + this.spownPointX);
-		this.startTime = game.time;
-		this.bunny = this.getRootContainer().findChildrenByType(Bunny)[0] as Bunny;
-		this.gameScene = this.getRootContainer() as BunnyGameSceneLogic;
-	}
-
-	public registerInPool(pipe : PipesContainer) {
-		pipe.parent?.removeChild(pipe);
-		pipe.wasPassed = false;
-		this.pool.push(pipe);
-	}
-
-	public spawn() {
-		if (this.pool.length == 0) {
-			if (this.pipePath) {
-				const pipe = Lib.loadPrefab(this.pipePath)! as PipesContainer;
-				pipe.parent = this;
-				pipe.bunny = this.bunny;
-				pipe.pipeId = this.pipeId++;
-				pipe.scene = this.gameScene;
-				//	console.log('spown pipe=' + pipe.pipeId);
-				this.pool.push(pipe);
-			}
-
-		}
-		const pipe = this.pool.pop()!;
-		pipe.x = this.spawnPointX;
-		this.addChild(pipe);
-	}
-
-	update() {
-		const dtTime = game.time - this.startTime;
-		if (dtTime == this.spawnTime) {
-			this.startTime = game.time;
-			this.spawn();
-		}
-		super.update();
-	}
-
-	onRemove() {
-		this.bunny = null;
-		this.gameScene = null;
-		super.onRemove();
-	}
-}
-</file>
-
-<file path="games/dear-project/assets/src/custom/PipesContaner.c.ts">
-import Container from 'thing-editor/src/engine/lib/assets/src/basic/container.c';
-import editable from 'thing-editor/src/editor/props-editor/editable';
-import type PipeSpawner from './pipe-spawner.c.ts';
-import type Bunny from './bunny.c';
-import type BunnyGameSceneLogic from './BunnyGameSceneLogic.c';
-import { GAME_CONFIG } from './game-config';
-
-export default class PipesContainer extends Container {
-
-	@editable()
-	private speedX: number = GAME_CONFIG.PIPE.SPEED_X;
-
-	@editable()
-	private MIN: number = GAME_CONFIG.PIPE.MIN_Y;
-
-	@editable()
-	private MAX: number = GAME_CONFIG.PIPE.MAX_Y;
-
-	public pipeId: number = 0;
-
-	public bunny: Bunny | null = null;
-
-	public scene: BunnyGameSceneLogic | null = null;
-
-	public wasPassed: boolean = false;
-
-	 init() {
-    	super.init();
-		this.wasPassed = false;
-	 	this.y = Math.floor(Math.random() * (this.MAX - this.MIN + 1)) + this.MIN;
-	 }
-
-	update() {
-		this.x += this.speedX;
-		if (this.x <= GAME_CONFIG.PIPE.RETURN_TO_POOL_X) {
-			(this.parent as PipeSpawner)?.registerInPool(this);
-		}
-		let isCollision = false;
-		if (this.bunny) {
-			const dx = Math.abs(this.getGlobalPosition().x - this.bunny.x);
-			const collisionXThreshold = GAME_CONFIG.PIPE.OBSTACLE_WIDTH_HALF + GAME_CONFIG.PIPE.COLLISION_RADIUS;
-
-			if (dx <= collisionXThreshold && this.getGlobalPosition().x > this.bunny.x) {
-				const gapTop = (this.getGlobalPosition().y + GAME_CONFIG.PIPE.OFFSET_Y);
-				const gapBottom = (this.getGlobalPosition().y + GAME_CONFIG.PIPE.OFFSET_Y) + GAME_CONFIG.PIPE.GAP_MULTIPLIER * GAME_CONFIG.PIPE.GAP_SIZE_HALF;
-
-				if (this.bunny.getGlobalPosition().y < gapTop || this.bunny.getGlobalPosition().y > gapBottom) {
-					const sceneLogic = this.getRootContainer() as BunnyGameSceneLogic;
-					isCollision = true;
-					sceneLogic?.gameOver();
-					return;
-				}
-			}
-
-			if (!isCollision && !this.wasPassed && (this.getGlobalPosition().x + GAME_CONFIG.PIPE.OBSTACLE_WIDTH_HALF) < this.bunny.x) {
-				this.wasPassed = true;
-				console.log('score increased for pipe=' + this.pipeId);
-				this.scene?.increaseScore();
-			}
-		}
-		super.update();
-	}
-
-	 onRemove() {
-		this.bunny = null;
-		this.scene = null;
-		super.onRemove();
-	 }
-}
-</file>
-
-<file path="games/dear-project/assets/src/index.ts">
-import game from 'thing-editor/src/engine/game';
-
-game.init();
-</file>
-
-<file path="games/dear-project/thing-project.json">
-{
-	"defaultFont": "Roboto, Arial",
-	"version": "0.0.9",
-	"__group": "thing-editor-demos",
-	"__loadOnDemandTexturesFolders": {
-		"ondemand": 2
-	},
-	"id": "flappy-dear.pixel-cave.com",
-	"title": "Flappy dear",
-	"icon": "assets/bunny.png",
-	"libs": [
-		"example-lib"
-	],
-	"autoFullscreenDesktop": false,
-	"autoFullscreenMobile": false
-}
-</file>
-
-<file path="games/example-project/assets/l18n/en.l.json">
-{
-	"example_title": "THING-EDITOR\nexample project"
-}
-</file>
-
-<file path="games/example-project/assets/l18n/ru.l.json">
-{
-	"example_title": "THING-EDITOR\nтестовый проект"
-}
-</file>
-
-<file path="games/example-project/assets/main.s.json">
-{
-	"c": "Scene",
-	"p": {
-		"name": "main",
-		"__description": "",
-		"backgroundColor": 276
-	},
-	":": [
-		{
-			"c": "Text",
-			"p": {
-				"x": 30,
-				"y": 98,
-				"text": "",
-				"translatableText": "example_title",
-				"style.align": "left",
-				"verticalAlign": "top",
-				"style.fill": "#9fafc1"
-			}
-		},
-		{
-			"c": "MovieClip",
-			"p": {
-				"x": 442,
-				"y": 577,
-				"image": "symbols/fuel0000.png",
-				"timeline": {
-					"l": {},
-					"p": 0.02,
-					"d": 0.85,
-					"f": [
-						{
-							"n": "image",
-							"t": [
-								{
-									"v": "symbols/fuel0000.png",
-									"t": 0,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0001.png",
-									"t": 2,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0002.png",
-									"t": 4,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0003.png",
-									"t": 6,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0004.png",
-									"t": 8,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0005.png",
-									"t": 10,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0006.png",
-									"t": 12,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0007.png",
-									"t": 14,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0008.png",
-									"t": 16,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0009.png",
-									"t": 18,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0010.png",
-									"t": 20,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0011.png",
-									"t": 22,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0012.png",
-									"t": 24,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0013.png",
-									"t": 26,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0014.png",
-									"t": 28,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0013.png",
-									"t": 30,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0012.png",
-									"t": 32,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0011.png",
-									"t": 34,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0010.png",
-									"t": 36,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0009.png",
-									"t": 38,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0008.png",
-									"t": 40,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0007.png",
-									"t": 42,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0006.png",
-									"t": 44,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0005.png",
-									"t": 46,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0004.png",
-									"t": 48,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0003.png",
-									"t": 50,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0002.png",
-									"t": 52,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0001.png",
-									"t": 54,
-									"m": 2
-								},
-								{
-									"v": "symbols/fuel0000.png",
-									"t": 56,
-									"m": 2,
-									"j": 0
-								}
-							]
-						},
-						{
-							"n": "x",
-							"t": [
-								{
-									"v": 442,
-									"t": 0
-								},
-								{
-									"v": 714,
-									"t": 179,
-									"r": -418
-								},
-								{
-									"v": 1273,
-									"t": 293,
-									"j": 0,
-									"r": -418
-								}
-							]
-						},
-						{
-							"n": "y",
-							"t": [
-								{
-									"v": 577,
-									"t": 0
-								},
-								{
-									"v": 359,
-									"t": 105,
-									"r": -418
-								},
-								{
-									"v": 807,
-									"t": 221,
-									"j": 0,
-									"r": -418
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 1038,
-				"y": 288,
-				"image": "bunny.png"
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 890,
-				"y": 438,
-				"image": "bunny.png"
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 1296,
-				"y": 473,
-				"image": "bunny.png"
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 670,
-				"y": 738,
-				"image": "bunny.png"
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 1238,
-				"y": 842,
-				"image": "bunny.png"
-			}
-		},
-		{
-			"c": "Bunny",
-			"p": {
-				"x": 1424,
-				"y": 997,
-				"image": "bunny.png"
-			}
-		}
-	]
-}
-</file>
-
-<file path="games/example-project/assets/src/custom/bunny.c.ts">
-import editable from 'thing-editor/src/editor/props-editor/editable';
-import game from 'thing-editor/src/engine/game';
-import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
-
-let FLOOR_Y = 0;
-
-export default class Bunny extends DSprite {
-
-	@editable()
-	gravity = 2;
-
-	init() {
-		super.init();
-		this.xSpeed = (Math.random() - 0.5) * 40;
-		this.ySpeed = (Math.random() - 0.5) * 40;
-		FLOOR_Y = game.H - 25;
-	}
-	_onRenderResize() {
-		FLOOR_Y = game.H - 25;
-	}
-
-	update() {
-		if (this.y >= FLOOR_Y) {
-			this.ySpeed *= -1;
-		} else {
-			this.ySpeed += Math.min(this.gravity, FLOOR_Y - this.y);
-		}
-
-		if (this.x < 0) {
-			this.x = 0;
-			this.xSpeed *= -1.0;
-		}
-
-		if (this.x > game.W) {
-			this.x = game.W;
-			this.xSpeed *= -1.0;
-		}
-
-		this.scale.x = this.xSpeed > 0 ? 1 : -1;
-		super.update();
-	}
-}
-</file>
-
-<file path="games/example-project/assets/src/index.ts">
-import game from 'thing-editor/src/engine/game';
-
-game.init();
-</file>
-
-<file path="games/example-project/thing-project.json">
-{
-	"defaultFont": "Roboto, Arial",
-	"version": "0.0.9",
-	"__group": "thing-editor-demos",
-	"__loadOnDemandTexturesFolders": {
-		"ondemand": 2
-	},
-	"id": "thing-project-example.pixel-cave.com",
-	"title": "thing-project-example",
-	"icon": "assets/bunny.png",
-	"libs": [
-		"example-lib"
-	],
-	"autoFullscreenDesktop": false,
-	"autoFullscreenMobile": false
 }
 </file>
 
@@ -4567,6 +2551,64 @@ export default class NEW_CLASS_NAME extends BASE_CLASS_NAME {
 	}
 	/// #endif
 }
+</file>
+
+<file path="thing-editor/src/editor/ui/assets-view/asset-preview.ts">
+import { Color } from 'pixi.js';
+import R from 'thing-editor/src/engine/basic-preact-fabrics';
+import game from 'thing-editor/src/engine/game';
+import Lib from 'thing-editor/src/engine/lib';
+import type Scene from 'thing-editor/src/engine/lib/assets/src/basic/scene.c';
+import { AssetType, type FileDesc } from '../../fs';
+import { editorEvents } from '../../utils/editor-events';
+import exportAsPng from '../../utils/export-as-png';
+
+const NO_PREVIEW_IMG = document.createElement('img');
+NO_PREVIEW_IMG.src = '/thing-editor/img/broken-image.png';
+const prefabsPreviewsCache = new Map() as Map<string, HTMLCanvasElement>;
+const scenesPreviewsCache = new Map() as Map<string, HTMLCanvasElement>;
+
+editorEvents.on('prefabUpdated', (prefabName:string) => {
+	prefabsPreviewsCache.delete(prefabName);
+});
+
+editorEvents.on('sceneUpdate', (sceneName:string) => {
+	prefabsPreviewsCache.delete(sceneName);
+});
+
+export const assetPreview = (file: FileDesc, width = 30, height = 30) => {
+	return R.span({
+		className: 'assets-item-preview-pic',
+		ref: (ref: HTMLSpanElement) => {
+			if (ref && !game.editor.buildProjectAndExit) {
+
+				const isScene = file.assetType === AssetType.SCENE;
+
+				const cache = isScene ? scenesPreviewsCache : prefabsPreviewsCache;
+
+				const img = cache.get(file.assetName);
+				if (img) {
+					ref.appendChild(img);
+				} else {
+					setTimeout(() => {
+						const o = isScene ? ((game.editor.currentSceneName === file.assetName && game.currentScene) ? game.currentScene : Lib.__loadSceneNoInit(file.assetName)) : Lib.__loadPrefabNoInit(file.assetName);
+						const bgColor = isScene ? new Color((o as Scene).backgroundColor).toHex() : '#000';
+						(exportAsPng(o, width, height, -1, undefined, true, !o.parent) as any).then((canvas: HTMLCanvasElement) => {
+							if (!canvas) {
+								canvas = NO_PREVIEW_IMG as any;
+							} else {
+								canvas.style.backgroundColor = bgColor;
+							}
+							cache.set(file.assetName, canvas);
+							ref.querySelector('canvas')?.remove();
+							ref.appendChild(canvas);
+						});
+					}, 10);
+				}
+			}
+		},
+	});
+};
 </file>
 
 <file path="thing-editor/src/editor/ui/choose-project.ts">
@@ -15647,6 +13689,633 @@ const sureQuestionInit = (container: Container, title: string, message: string, 
 export default sureQuestionInit;
 </file>
 
+<file path="games/dear-project/assets/l18n/en.l.json">
+{
+	"example_title": "Счетчик:",
+	"gameOver": "Увы, игра закончена.",
+	"counter": "0"
+}
+</file>
+
+<file path="games/dear-project/assets/l18n/ru.l.json">
+{
+	"example_title": "Counter:",
+	"gameOver": "Oops, game over.",
+	"counter": "0"
+}
+</file>
+
+<file path="games/dear-project/assets/newscene.s.json">
+{
+	"c": "BunnyGameSceneLogic",
+	"p": {
+		"name": "newscene"
+	},
+	":": [
+		{
+			"c": "DynamicFill",
+			"p": {
+				"scale.x": 2.088,
+				"scale.y": 1.055,
+				"image": "sky.png",
+				"tint": 16777215,
+				"blendMode": 0,
+				"xRepeat": 2.088,
+				"yRepeat": 1.055,
+				"xShiftSpeed": 0.01,
+				"isDynamic": true
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 628,
+				"y": 562,
+				"interactive": true,
+				"scale.x": 1.6,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "PipeSpawner",
+			"p": {
+				"name": "pipes",
+				"pipePath": "pipes",
+				"pipesRange": 300
+			}
+		},
+		{
+			"c": "DynamicText",
+			"p": {
+				"name": "counterLabel",
+				"x": 874,
+				"y": 90,
+				"tint": 0,
+				"text": "",
+				"translatableText": "example_title",
+				"style.fontSize": 51,
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1",
+				"isDynamicYPosition": false
+			}
+		},
+		{
+			"c": "DynamicText",
+			"p": {
+				"name": "counterText",
+				"x": 1080,
+				"y": 90,
+				"pivot.x": -120,
+				"tint": 0,
+				"text": "",
+				"translatableText": "counter",
+				"style.fontSize": 51,
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1",
+				"isDynamicYPosition": false
+			}
+		},
+		{
+			"c": "DynamicText",
+			"p": {
+				"name": "GameOverText",
+				"x": 1014,
+				"y": 450,
+				"alpha": 0,
+				"tint": 0,
+				"text": "",
+				"translatableText": "gameOver",
+				"style.fontSize": 150,
+				"style.align": "left",
+				"style.fill": "#9fafc1"
+			}
+		}
+	]
+}
+</file>
+
+<file path="games/dear-project/assets/src/custom/bunny-game-scene-logic.c.ts">
+import Scene from 'thing-editor/src/engine/lib/assets/src/basic/scene.c';
+import { GAME_CONFIG } from './game-config';
+
+export default class BunnyGameSceneLogic extends Scene {
+
+	public score: number = 0;
+	private scoreText: any = null;
+	private gameOverText: any = null;
+
+	init() {
+		super.init();
+		this.score = GAME_CONFIG.SCENE.INITIAL_SCORE;
+		this.scoreText = this.findChildByName('counterText');
+		this.gameOverText = this.findChildByName('GameOverText');
+		this.updateScoreDisplay();
+	}
+
+	public increaseScore() {
+		this.score++;
+		this.updateScoreDisplay();
+	}
+
+	private updateScoreDisplay() {
+		if (this.scoreText) {
+			this.scoreText.text = `${this.score}`;
+		}
+	}
+
+	update() {
+		if (this.gameOverText.alpha == GAME_CONFIG.SCENE.GAME_OVER_ALPHA) {
+			return;
+		} else {
+			super.update();
+		}
+	}
+
+	gameOver() {
+		if (this.gameOverText) {
+			this.gameOverText.alpha = GAME_CONFIG.SCENE.GAME_OVER_ALPHA;
+		}
+		this.onRemove();
+	}
+
+	onRemove() {
+		super.onRemove();
+	}
+}
+</file>
+
+<file path="games/dear-project/assets/src/custom/dynamic-fill.c.ts">
+// this class generated with Thing-Editor's component's Wizard,
+// and contain basic game-object's methods.
+// For details: https://github.com/Megabyteceer/thing-editor/wiki/Custom-Components#custom-component-methods
+
+import editable from 'thing-editor/src/editor/props-editor/editable';
+import Fill from 'thing-editor/src/engine/lib/assets/src/basic/fill.c';
+import game from 'thing-editor/src/engine/game';
+
+export default class DynamicFill extends Fill {
+
+
+	@editable()
+	isDynamic = false;
+
+
+	init() {
+		super.init();
+		if (this.isDynamic) {
+			this.updateScaleAndRepeat();
+		}
+	}
+
+	private updateScaleAndRepeat() {
+		if (!this.texture) {
+			return;
+		}
+
+		const textureWidth = this.texture.width;
+		const textureHeight = this.texture.height;
+
+		if (textureWidth <= 0 || textureHeight <= 0) {
+			return;
+		}
+
+		let viewportWidth: number;
+		let viewportHeight: number;
+
+		if (game.isPortrait) {
+			viewportWidth = game.W;
+			viewportHeight = game.H;
+		} else {
+			viewportWidth = game.W;
+			viewportHeight = game.H;
+		}
+
+		const scaleX = viewportWidth / textureWidth;
+		const scaleY = viewportHeight / textureHeight;
+
+		this.scale.x = scaleX;
+		this.scale.y = scaleY;
+		this.xRepeat = scaleX;
+		this.yRepeat = scaleY;
+	}
+
+	update() {
+		super.update();
+	}
+
+	onRemove() {
+		super.onRemove();
+	}
+}
+</file>
+
+<file path="games/dear-project/assets/src/custom/dynamic-text.c.ts">
+// this class generated with Thing-Editor's component's Wizard,
+// and contain basic game-object's methods.
+// For details: https://github.com/Megabyteceer/thing-editor/wiki/Custom-Components#custom-component-methods
+
+import editable from 'thing-editor/src/editor/props-editor/editable';
+import game from 'thing-editor/src/engine/game';
+import Text from 'thing-editor/src/engine/lib/assets/src/basic/text.c';
+
+export default class DynamicText extends Text {
+
+
+	@editable()
+	isDynamicXPosition: boolean = true;
+
+	@editable()
+	isDynamicYPosition: boolean = true;
+
+	init() {
+		super.init();
+		if (this.isDynamicXPosition) {
+			this.x = game.W / 2 - this.width / 2;
+		}
+		if (this.isDynamicYPosition) {
+			this.y = game.H / 2 - this.height / 2;
+		}
+	}
+
+	update() {
+		super.update();
+	}
+
+	onRemove() {
+		super.onRemove();
+	}
+}
+</file>
+
+<file path="games/dear-project/assets/src/index.ts">
+import game from 'thing-editor/src/engine/game';
+
+game.init();
+</file>
+
+<file path="games/example-project/assets/l18n/en.l.json">
+{
+	"example_title": "THING-EDITOR\nexample project"
+}
+</file>
+
+<file path="games/example-project/assets/l18n/ru.l.json">
+{
+	"example_title": "THING-EDITOR\nтестовый проект"
+}
+</file>
+
+<file path="games/example-project/assets/main.s.json">
+{
+	"c": "Scene",
+	"p": {
+		"name": "main",
+		"__description": "",
+		"backgroundColor": 276
+	},
+	":": [
+		{
+			"c": "Text",
+			"p": {
+				"x": 30,
+				"y": 98,
+				"text": "",
+				"translatableText": "example_title",
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1"
+			}
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"x": 442,
+				"y": 577,
+				"image": "symbols/fuel0000.png",
+				"timeline": {
+					"l": {},
+					"p": 0.02,
+					"d": 0.85,
+					"f": [
+						{
+							"n": "image",
+							"t": [
+								{
+									"v": "symbols/fuel0000.png",
+									"t": 0,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 2,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0002.png",
+									"t": 4,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 6,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 8,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 10,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 12,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 14,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 16,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 18,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 20,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 22,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 24,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 26,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0014.png",
+									"t": 28,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 30,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 32,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 34,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 36,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 38,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 40,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 42,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 44,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 46,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 48,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 50,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0002.png",
+									"t": 52,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 54,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0000.png",
+									"t": 56,
+									"m": 2,
+									"j": 0
+								}
+							]
+						},
+						{
+							"n": "x",
+							"t": [
+								{
+									"v": 442,
+									"t": 0
+								},
+								{
+									"v": 714,
+									"t": 179,
+									"r": -418
+								},
+								{
+									"v": 1273,
+									"t": 293,
+									"j": 0,
+									"r": -418
+								}
+							]
+						},
+						{
+							"n": "y",
+							"t": [
+								{
+									"v": 577,
+									"t": 0
+								},
+								{
+									"v": 359,
+									"t": 105,
+									"r": -418
+								},
+								{
+									"v": 807,
+									"t": 221,
+									"j": 0,
+									"r": -418
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 1038,
+				"y": 288,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 890,
+				"y": 438,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 1296,
+				"y": 473,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 670,
+				"y": 738,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 1238,
+				"y": 842,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 1424,
+				"y": 997,
+				"image": "bunny.png"
+			}
+		}
+	]
+}
+</file>
+
+<file path="games/example-project/assets/src/custom/bunny.c.ts">
+import editable from 'thing-editor/src/editor/props-editor/editable';
+import game from 'thing-editor/src/engine/game';
+import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
+
+let FLOOR_Y = 0;
+
+export default class Bunny extends DSprite {
+
+	@editable()
+	gravity = 2;
+
+	init() {
+		super.init();
+		this.xSpeed = (Math.random() - 0.5) * 40;
+		this.ySpeed = (Math.random() - 0.5) * 40;
+		FLOOR_Y = game.H - 25;
+	}
+	_onRenderResize() {
+		FLOOR_Y = game.H - 25;
+	}
+
+	update() {
+		if (this.y >= FLOOR_Y) {
+			this.ySpeed *= -1;
+		} else {
+			this.ySpeed += Math.min(this.gravity, FLOOR_Y - this.y);
+		}
+
+		if (this.x < 0) {
+			this.x = 0;
+			this.xSpeed *= -1.0;
+		}
+
+		if (this.x > game.W) {
+			this.x = game.W;
+			this.xSpeed *= -1.0;
+		}
+
+		this.scale.x = this.xSpeed > 0 ? 1 : -1;
+		super.update();
+	}
+}
+</file>
+
+<file path="games/example-project/assets/src/index.ts">
+import game from 'thing-editor/src/engine/game';
+
+game.init();
+</file>
+
+<file path="games/example-project/thing-project.json">
+{
+	"defaultFont": "Roboto, Arial",
+	"version": "0.0.9",
+	"__group": "thing-editor-demos",
+	"__loadOnDemandTexturesFolders": {
+		"ondemand": 2
+	},
+	"id": "thing-project-example.pixel-cave.com",
+	"title": "thing-project-example",
+	"icon": "assets/bunny.png",
+	"libs": [
+		"example-lib"
+	],
+	"autoFullscreenDesktop": false,
+	"autoFullscreenMobile": false
+}
+</file>
+
 <file path="thing-editor/demo/dear-project/assets/l18n/en.l.json">
 {
 	"example_title": "Flappy dear"
@@ -15935,139 +14604,6 @@ export default sureQuestionInit;
 			}
 		}
 	]
-}
-</file>
-
-<file path="thing-editor/demo/dear-project/assets/src/custom/bunny.c.ts">
-// import editable from 'thing-editor/src/editor/props-editor/editable';
-// import game from 'thing-editor/src/engine/game';
-// import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
-
-// let FLOOR_Y = 0;
-
-// export default class Bunny extends DSprite {
-
-// 	@editable()
-// 	gravity = 2;
-
-// 	init() {
-// 		super.init();
-// 		this.xSpeed = (Math.random() - 0.5) * 40;
-// 		this.ySpeed = (Math.random() - 0.5) * 40;
-// 		FLOOR_Y = game.H - 25;
-// 	}
-// 	_onRenderResize() {
-// 		FLOOR_Y = game.H - 25;
-// 	}
-
-// 	update() {
-// 		if (this.y >= FLOOR_Y) {
-// 			this.ySpeed *= -1;
-// 		} else {
-// 			this.ySpeed += Math.min(this.gravity, FLOOR_Y - this.y);
-// 		}
-
-// 		if (this.x < 0) {
-// 			this.x = 0;
-// 			this.xSpeed *= -1.0;
-// 		}
-
-// 		if (this.x > game.W) {
-// 			this.x = game.W;
-// 			this.xSpeed *= -1.0;
-// 		}
-
-// 		this.scale.x = this.xSpeed > 0 ? 1 : -1;
-// 		super.update();
-// 	}
-// }
-
-import editable from 'thing-editor/src/editor/props-editor/editable';
-import game from 'thing-editor/src/engine/game';
-import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
-import { ƒ } from 'thing-editor/js/engine/utils'; // Импортируем утилиты для ƒ.delta и ƒ.clamp
-
-// --- КОНСТАНТЫ ДЛЯ FLAPPY МЕХАНИКИ ---
-const GAME_GRAVITY = 1200; // Ускорение гравитации (пикселей/сек^2). Сделаем чуть сильнее.
-const JUMP_VELOCITY = -500; // Скорость прыжка (отрицательное значение - вверх)
-
-export default class Bunny extends DSprite {
-
-    // Добавляем наши переменные для физики и состояния
-    private velocityY: number = 0;
-    private isAlive: boolean = true;
-
-    // В init() устанавливаем начальные условия и привязываем ввод
-    init() {
-    	super.init();
-
-    	// Устанавливаем начальную позицию и скорость
-    	this.x = game.W * 0.2; // Заяц находится слева
-    	this.y = game.H / 2;
-    	this.velocityY = 0;
-    	this.isAlive = true;
-
-    	// Привязываем обработчик клика/касания ко всей сцене для прыжка
-    	const stage = game.getCurrentContainer();
-    	if (stage) {
-    		stage.interactive = true;
-    		stage.on('pointerdown', this.onJump, this);
-    	}
-    }
-
-    // Метод, вызываемый при клике/касании
-    onJump() {
-    	if (this.isAlive) {
-    		this.velocityY = JUMP_VELOCITY;
-    	}
-    }
-
-    // Метод для обработки проигрыша
-    gameOver() {
-    	if (!this.isAlive) return;
-    	this.isAlive = false;
-    	console.log('Заяц разбился! Game Over.');
-    	// Здесь можно остановить движение препятствий
-    	// game.editor.stop();
-    }
-
-    // Главный цикл логики
-    update() {
-    	if (!this.isAlive) {
-    		return;
-    	}
-
-    	// 1. Применяем гравитацию
-    	// ƒ.delta - это время, прошедшее с предыдущего кадра, в секундах.
-    	this.velocityY += GAME_GRAVITY * ƒ.delta;
-
-    	// 2. Изменяем вертикальную позицию
-    	this.y += this.velocityY * ƒ.delta;
-
-    	// 3. Добавляем поворот спрайта (Визуальный эффект)
-    	// Заяц наклоняется вниз при падении
-    	this.rotation = ƒ.clamp(
-    		this.velocityY / 800 * (Math.PI / 2),
-    		-Math.PI / 6, // Максимальный подъем
-    		Math.PI / 2 // Максимальный наклон вниз
-    	);
-
-    	// 4. Проверка на Game Over (падение ниже экрана или полет выше)
-    	if (this.y > game.H || this.y < 0) {
-    		this.gameOver();
-    	}
-
-    	super.update(); // Вызов родительского update (важно для DSprite)
-    }
-
-    // Очистка слушателей при удалении объекта
-    onRemove() {
-    	const stage = game.getCurrentContainer();
-    	if (stage) {
-    		stage.off('pointerdown', this.onJump, this);
-    	}
-    	super.onRemove();
-    }
 }
 </file>
 
@@ -19017,6 +17553,253 @@ function toggleGroup(ev: MouseEvent) {
 export default { renderGroup, groupArray };
 
 export type { GroupAbleItem as GroupAbleItem, GroupFolderData };
+</file>
+
+<file path="thing-editor/src/editor/ui/labels-logger.ts">
+import type { Container } from 'pixi.js';
+import type { ClassAttributes, ComponentChild } from 'preact';
+import { h } from 'preact';
+
+import R from 'thing-editor/src/editor/preact-fabrics';
+import ComponentDebounced from 'thing-editor/src/editor/ui/component-debounced';
+import Window from 'thing-editor/src/editor/ui/editor-window';
+import MainMenu from 'thing-editor/src/editor/ui/main-menu';
+import { hideAdditionalWindow, showAdditionalWindow } from 'thing-editor/src/editor/ui/ui';
+import { editorEvents } from 'thing-editor/src/editor/utils/editor-events';
+import game from 'thing-editor/src/engine/game';
+import copyTextByClick from '../utils/copy-text-by-click';
+
+import { CTRL_READABLE } from 'thing-editor/src/engine/utils/utils';
+import { searchByRegexpOrText } from '../utils/search-by-regexp-or-text';
+import type { SelectEditorItem } from './props-editor/props-editors/select-editor';
+import SelectEditor from './props-editor/props-editors/select-editor';
+
+let lastItemTime = 0;
+
+/// 99999
+
+interface LabelsLoggerProps extends ClassAttributes<LabelsLogger> {
+}
+
+let listProps = {
+	className: 'window-scrollable-content labels-log-list',
+};
+
+const enum FilterType {
+	ALL = 'all',
+	AFFECTS_SELECTION = 'affecting selection',
+	SELECTION_IS_ROOT = 'selection is root'
+}
+
+const filterSelect = [
+	{
+		name: FilterType.ALL,
+		value: FilterType.ALL
+	},
+	{
+		name: FilterType.AFFECTS_SELECTION,
+		value: FilterType.AFFECTS_SELECTION
+	},
+	{
+		name: FilterType.SELECTION_IS_ROOT,
+		value: FilterType.SELECTION_IS_ROOT
+	}
+] as SelectEditorItem[];
+
+interface LabelsLoggerState {
+	search: string;
+	filter: FilterType;
+}
+
+interface LabelLogItem {
+	label: string;
+	root: Container;
+	_rootId: number;
+	time: number;
+}
+
+
+let labelNamesProps = {
+	className: 'selectable-text labels-log-label',
+	title: CTRL_READABLE + '+click to copy label`s name',
+	onMouseDown: copyTextByClick
+};
+
+
+const log: LabelLogItem[] = [];
+
+let instance: LabelsLogger;
+
+export default class LabelsLogger extends ComponentDebounced<LabelsLoggerProps, LabelsLoggerState> {
+
+	searchInputProps: KeyedObject;
+	constructor(props: LabelsLoggerProps) {
+		super(props);
+
+		this.state = {
+			search: '',
+			filter: FilterType.ALL
+		};
+
+		this.searchInputProps = {
+			className: 'search-input',
+			onInput: this.onSearchChange.bind(this),
+			placeholder: 'Search'
+		};
+	}
+
+	onSearchChange(ev: InputEvent) {
+		let search = (ev.target as HTMLInputElement).value.toLowerCase();
+		this.setState({ search });
+	}
+
+	clearSearch() {
+		this.setState({search: undefined});
+	}
+
+	static allLabels = new Set() as Set<string>;
+
+	static logGotoLabelRecursive(label: string, root:Container) {
+		this.allLabels.add(label);
+		if (instance && !game.currentScene?.___framesToSkip) {
+			log.push({label, root, _rootId: root.___id, time: game.time});
+			if (log.length > 1100) {
+				log.splice(0, 100);
+			}
+			instance.refresh();
+		}
+	}
+
+	static refresh() {
+		instance?.refresh();
+	}
+
+	componentDidMount(): void {
+		instance = this;
+	}
+
+	componentWillUnmount(): void {
+		instance = null!;
+	}
+
+	renderItem(item: LabelLogItem) {
+		const isRemoved = item._rootId !== item.root.___id;
+		const timeDelta = item.time - lastItemTime;
+		lastItemTime = item.time;
+		const timeSplitter = R.div({title: 'game.time shift in frames', className: 'labels-log-time'}, timeDelta ? ('+' + timeDelta) : undefined);
+
+		return R.fragment(
+			R.div(
+				{
+					className: isRemoved ? 'labels-log-item disabled' : (item.root.__nodeExtendData.isSelected ? 'labels-log-item labels-log-item-selected' : 'labels-log-item'),
+					onClick: isRemoved ? undefined : () => {
+						game.editor.selection.select(item.root);
+						instance.refresh();
+					}
+				},
+				timeSplitter,
+				R.span(labelNamesProps, item.label),
+				R.sceneNode(item.root)
+			)
+		);
+	}
+
+	render(): ComponentChild {
+		let list = log;
+		if (this.state.search) {
+			list = log.filter((item) => {
+				if (searchByRegexpOrText(item.label, this.state.search)) {
+					return true;
+				}
+				if (item._rootId === item.root.___id) {
+					if (searchByRegexpOrText(item.root.name || '', this.state.search)) {
+						return true;
+					}
+					if (searchByRegexpOrText((item.root.constructor as SourceMappedConstructor).__className!, this.state.search)) {
+						return true;
+					}
+				}
+			});
+		}
+
+		if (this.state.filter !== FilterType.ALL) {
+			const filterContainers = new Set();
+			for (let container of game.editor.selection) {
+				filterContainers.add(container);
+				if (this.state.filter === FilterType.AFFECTS_SELECTION) {
+					while (container) {
+						container = container.parent;
+						filterContainers.add(container);
+					}
+				}
+			}
+			list = list.filter(i => filterContainers.has(i.root));
+		}
+
+		lastItemTime = list[0]?.time || 0;
+
+		return R.fragment(
+			R.btn('×', LabelsLogger.toggle, 'Hide labels logger', 'close-window-btn', { key: 'Escape' }),
+
+			R.div({className: 'choose-list-header'},
+				h(SelectEditor, {
+					select: filterSelect,
+					onChange: (filter: FilterType) => {
+						this.setState({filter});
+					}, value: this.state.filter
+				}), R.input(this.searchInputProps), R.btn('×', this.clearSearch, 'Discard search filter', 'close-btn clear-search-btn')
+			),
+			R.div(listProps,
+				list.map(this.renderItem)
+			),
+			R.btn(R.fragment('CLEAR', R.icon('delete')), clearLog, undefined, 'danger', undefined, !log.length)
+		);
+	}
+
+	static toggle() {
+		game.editor.settings.setItem('labels-logger-shown', !game.editor.settings.getItem('labels-logger-shown'));
+		LabelsLogger.renderWindow();
+	}
+
+	static renderWindow() {
+		if (game.editor.settings.getItem('labels-logger-shown')) {
+			LabelsLogger.show();
+		} else {
+			LabelsLogger.hide();
+		}
+	}
+
+	static show() {
+		showAdditionalWindow('labels-logger', 'LabelsLogger', 'Labels Logger',
+			h(LabelsLogger, null),
+			50, 50, 80, 80, 450, 200);
+		Window.bringWindowForward('#labels-logger');
+	}
+
+	static hide() {
+		hideAdditionalWindow('labels-logger');
+	}
+}
+
+window.setTimeout(LabelsLogger.renderWindow, 100,);
+
+function clearLog() {
+	log.length = 0;
+	instance?.refresh();
+}
+
+editorEvents.on('playToggle', clearLog);
+
+MainMenu.injectMenu('settings', [{
+	name: () => {
+		return R.span(null, R.span({ className: '.menu-icon' }, game.editor.settings.getItem('labels-logger-shown') ? '☑' : '☐'), ' Labels logger');
+	},
+	hotkey: { key: 'l', ctrlKey: true, shiftKey: true },
+	onClick: () => {
+		LabelsLogger.toggle();
+	},
+	stayAfterClick: true
+}], 'labels-logger', -1);
 </file>
 
 <file path="thing-editor/src/editor/ui/local-store-view.ts">
@@ -27284,6 +26067,379 @@ export default defineConfig({
 });
 </file>
 
+<file path="games/dear-project/assets/bunnyscene.s.json">
+{
+	"c": "BunnyGameSceneLogic",
+	"p": {
+		"name": "bunnyscene",
+		"backgroundColor": 159339
+	},
+	":": [
+		{
+			"c": "DynamicFill",
+			"p": {
+				"scale.x": 2.088,
+				"scale.y": 1.055,
+				"image": "sky.png",
+				"tint": 16777215,
+				"blendMode": 0,
+				"xRepeat": 2.088,
+				"yRepeat": 1.055,
+				"xShiftSpeed": 0.01,
+				"isDynamic": true
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 628,
+				"y": 562,
+				"interactive": true,
+				"scale.x": 1.6,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "PipeSpawner",
+			"p": {
+				"name": "pipes",
+				"pipePath": "pipes",
+				"pipesRange": 300
+			}
+		},
+		{
+			"c": "DynamicText",
+			"p": {
+				"name": "counterLabel",
+				"x": 874,
+				"y": 90,
+				"tint": 0,
+				"text": "",
+				"translatableText": "example_title",
+				"style.fontSize": 51,
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1",
+				"isDynamicYPosition": false
+			}
+		},
+		{
+			"c": "DynamicText",
+			"p": {
+				"name": "counterText",
+				"x": 1080,
+				"y": 90,
+				"pivot.x": -120,
+				"tint": 0,
+				"text": "",
+				"translatableText": "counter",
+				"style.fontSize": 51,
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1",
+				"isDynamicYPosition": false
+			}
+		},
+		{
+			"c": "DynamicText",
+			"p": {
+				"name": "GameOverText",
+				"x": 1014,
+				"y": 450,
+				"alpha": 0,
+				"tint": 0,
+				"text": "",
+				"translatableText": "gameOver",
+				"style.fontSize": 150,
+				"style.align": "left",
+				"style.fill": "#9fafc1"
+			}
+		}
+	]
+}
+</file>
+
+<file path="games/dear-project/assets/pipe.p.json">
+{
+	"c": "Container",
+	"p": {
+		"name": "pipe",
+		"x": 969,
+		"y": 246,
+		"rotation": 3.141592653589793
+	},
+	":": [
+		{
+			"c": "Shape",
+			"p": {
+				"x": -60,
+				"width": 120,
+				"height": 20,
+				"shapeFillColor": 7396430
+			}
+		},
+		{
+			"c": "Shape",
+			"p": {
+				"pivot.x": 50,
+				"height": 1050,
+				"shapeFillColor": 7396430
+			}
+		},
+		{
+			"c": "Shape",
+			"p": {
+				"x": -25,
+				"y": 10,
+				"width": 50,
+				"height": 1035,
+				"shapeFillColor": 9624654
+			}
+		}
+	]
+}
+</file>
+
+<file path="games/dear-project/assets/pipes.p.json">
+{
+	"c": "PipesContainer",
+	"p": {
+		"name": "pipes",
+		"y": 153,
+		"pivot.y": 400
+	},
+	":": [
+		{
+			"r": "pipe",
+			"p": {
+				"name": "pipe1",
+				"x": 0,
+				"y": 170
+			}
+		},
+		{
+			"r": "pipe",
+			"p": {
+				"name": "pipe2",
+				"x": 0,
+				"y": 630,
+				"rotation": 0
+			}
+		}
+	]
+}
+</file>
+
+<file path="games/dear-project/assets/src/custom/pipes-contaner.c.ts">
+import Container from 'thing-editor/src/engine/lib/assets/src/basic/container.c';
+import type PipeSpawner from './pipe-spawner.c.ts';
+import type Bunny from './bunny.c.ts';
+import type BunnyGameSceneLogic from './bunny-game-scene-logic.c.ts';
+import { GAME_CONFIG } from './game-config.ts';
+
+export default class PipesContainer extends Container {
+
+    public speedX: number = GAME_CONFIG.PIPE.SPEED_X;
+
+    public pipeId: number = 0;
+
+    public bunny: Bunny | null = null;
+
+    public scene: BunnyGameSceneLogic | null = null;
+
+    public wasPassed: boolean = false;
+    public lastCheckX: number = 0;
+
+    init() {
+    	super.init();
+    }
+
+    update() {
+    	if (!this.parent || !this.visible) {
+    		return;
+    	}
+
+    	this.x += this.speedX;
+
+    	const RETURN_LIMIT = GAME_CONFIG.PIPE.RETURN_TO_POOL_X - GAME_CONFIG.PIPE.OBSTACLE_WIDTH_HALF;
+
+    	if (this.x <= RETURN_LIMIT) {
+    		this.visible = false;
+    		this.x = GAME_CONFIG.PIPE.FAR_AWAY_X;
+    		(this.parent as PipeSpawner)?.registerInPool(this);
+    		return;
+    	}
+
+
+    	if (this.wasPassed) {
+    		return;
+    	} else {
+    		let isCollision = false;
+    		if (this.bunny) {
+    			const dx = Math.abs(this.getGlobalPosition().x - this.bunny.x);
+    			const collisionXThreshold = GAME_CONFIG.PIPE.OBSTACLE_WIDTH_HALF + GAME_CONFIG.PIPE.COLLISION_RADIUS;
+
+    			if (dx <= collisionXThreshold && this.getGlobalPosition().x > this.bunny.x) {
+    				const gapTop = this.getGlobalPosition().y - GAME_CONFIG.PIPE.GAP_SIZE_HALF;
+    				const gapBottom = this.getGlobalPosition().y + GAME_CONFIG.PIPE.GAP_SIZE_HALF;
+
+    				if (this.bunny.getGlobalPosition().y < gapTop || this.bunny.getGlobalPosition().y > gapBottom) {
+    					const sceneLogic = this.getRootContainer() as BunnyGameSceneLogic;
+    					isCollision = true;
+    					sceneLogic?.gameOver();
+    					return;
+    				}
+    			}
+    			if (!isCollision && !this.wasPassed && (this.getGlobalPosition().x + GAME_CONFIG.PIPE.OBSTACLE_WIDTH_HALF) < this.bunny.x) {
+    				this.wasPassed = true;
+    				this.scene?.increaseScore();
+    			}
+    		}
+    	}
+    	super.update();
+    }
+
+    onRemove() {
+    	this.bunny = null;
+    	this.scene = null;
+    	super.onRemove();
+    }
+}
+</file>
+
+<file path="thing-editor/demo/dear-project/assets/src/custom/bunny.c.ts">
+// import editable from 'thing-editor/src/editor/props-editor/editable';
+// import game from 'thing-editor/src/engine/game';
+// import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
+
+// let FLOOR_Y = 0;
+
+// export default class Bunny extends DSprite {
+
+// 	@editable()
+// 	gravity = 2;
+
+// 	init() {
+// 		super.init();
+// 		this.xSpeed = (Math.random() - 0.5) * 40;
+// 		this.ySpeed = (Math.random() - 0.5) * 40;
+// 		FLOOR_Y = game.H - 25;
+// 	}
+// 	_onRenderResize() {
+// 		FLOOR_Y = game.H - 25;
+// 	}
+
+// 	update() {
+// 		if (this.y >= FLOOR_Y) {
+// 			this.ySpeed *= -1;
+// 		} else {
+// 			this.ySpeed += Math.min(this.gravity, FLOOR_Y - this.y);
+// 		}
+
+// 		if (this.x < 0) {
+// 			this.x = 0;
+// 			this.xSpeed *= -1.0;
+// 		}
+
+// 		if (this.x > game.W) {
+// 			this.x = game.W;
+// 			this.xSpeed *= -1.0;
+// 		}
+
+// 		this.scale.x = this.xSpeed > 0 ? 1 : -1;
+// 		super.update();
+// 	}
+// }
+
+import editable from 'thing-editor/src/editor/props-editor/editable';
+import game from 'thing-editor/src/engine/game';
+import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
+import { ƒ } from 'thing-editor/js/engine/utils'; // Импортируем утилиты для ƒ.delta и ƒ.clamp
+
+// --- КОНСТАНТЫ ДЛЯ FLAPPY МЕХАНИКИ ---
+const GAME_GRAVITY = 1200; // Ускорение гравитации (пикселей/сек^2). Сделаем чуть сильнее.
+const JUMP_VELOCITY = -500; // Скорость прыжка (отрицательное значение - вверх)
+
+export default class Bunny extends DSprite {
+
+    // Добавляем наши переменные для физики и состояния
+    private velocityY: number = 0;
+    private isAlive: boolean = true;
+
+    // В init() устанавливаем начальные условия и привязываем ввод
+    init() {
+    	super.init();
+
+    	// Устанавливаем начальную позицию и скорость
+    	this.x = game.W * 0.2; // Заяц находится слева
+    	this.y = game.H / 2;
+    	this.velocityY = 0;
+    	this.isAlive = true;
+
+    	// Привязываем обработчик клика/касания ко всей сцене для прыжка
+    	const stage = game.getCurrentContainer();
+    	if (stage) {
+    		stage.interactive = true;
+    		stage.on('pointerdown', this.onJump, this);
+    	}
+    }
+
+    // Метод, вызываемый при клике/касании
+    onJump() {
+    	if (this.isAlive) {
+    		this.velocityY = JUMP_VELOCITY;
+    	}
+    }
+
+    // Метод для обработки проигрыша
+    gameOver() {
+    	if (!this.isAlive) return;
+    	this.isAlive = false;
+    	console.log('Заяц разбился! Game Over.');
+    	// Здесь можно остановить движение препятствий
+    	// game.editor.stop();
+    }
+
+    // Главный цикл логики
+    update() {
+    	if (!this.isAlive) {
+    		return;
+    	}
+
+    	// 1. Применяем гравитацию
+    	// ƒ.delta - это время, прошедшее с предыдущего кадра, в секундах.
+    	this.velocityY += GAME_GRAVITY * ƒ.delta;
+
+    	// 2. Изменяем вертикальную позицию
+    	this.y += this.velocityY * ƒ.delta;
+
+    	// 3. Добавляем поворот спрайта (Визуальный эффект)
+    	// Заяц наклоняется вниз при падении
+    	this.rotation = ƒ.clamp(
+    		this.velocityY / 800 * (Math.PI / 2),
+    		-Math.PI / 6, // Максимальный подъем
+    		Math.PI / 2 // Максимальный наклон вниз
+    	);
+
+    	// 4. Проверка на Game Over (падение ниже экрана или полет выше)
+    	if (this.y > game.H || this.y < 0) {
+    		this.gameOver();
+    	}
+
+    	super.update(); // Вызов родительского update (важно для DSprite)
+    }
+
+    // Очистка слушателей при удалении объекта
+    onRemove() {
+    	const stage = game.getCurrentContainer();
+    	if (stage) {
+    		stage.off('pointerdown', this.onJump, this);
+    	}
+    	super.onRemove();
+    }
+}
+</file>
+
 <file path="thing-editor/demo/install.js">
 import fs from 'fs';
 import * as patcher from '../electron-main/pixi-typings-patch.js';
@@ -29021,253 +28177,6 @@ class FilterList extends ChooseList {
 export const showListFilter = (title:string, list:ChooseListItem[]):Promise<ChooseListItem[]> => {
 	return game.editor.ui.modal.showModal(h(FilterList, { list, doNotGroup: true }), title, true);
 };
-</file>
-
-<file path="thing-editor/src/editor/ui/labels-logger.ts">
-import type { Container } from 'pixi.js';
-import type { ClassAttributes, ComponentChild } from 'preact';
-import { h } from 'preact';
-
-import R from 'thing-editor/src/editor/preact-fabrics';
-import ComponentDebounced from 'thing-editor/src/editor/ui/component-debounced';
-import Window from 'thing-editor/src/editor/ui/editor-window';
-import MainMenu from 'thing-editor/src/editor/ui/main-menu';
-import { hideAdditionalWindow, showAdditionalWindow } from 'thing-editor/src/editor/ui/ui';
-import { editorEvents } from 'thing-editor/src/editor/utils/editor-events';
-import game from 'thing-editor/src/engine/game';
-import copyTextByClick from '../utils/copy-text-by-click';
-
-import { CTRL_READABLE } from 'thing-editor/src/engine/utils/utils';
-import { searchByRegexpOrText } from '../utils/search-by-regexp-or-text';
-import type { SelectEditorItem } from './props-editor/props-editors/select-editor';
-import SelectEditor from './props-editor/props-editors/select-editor';
-
-let lastItemTime = 0;
-
-/// 99999
-
-interface LabelsLoggerProps extends ClassAttributes<LabelsLogger> {
-}
-
-let listProps = {
-	className: 'window-scrollable-content labels-log-list',
-};
-
-const enum FilterType {
-	ALL = 'all',
-	AFFECTS_SELECTION = 'affecting selection',
-	SELECTION_IS_ROOT = 'selection is root'
-}
-
-const filterSelect = [
-	{
-		name: FilterType.ALL,
-		value: FilterType.ALL
-	},
-	{
-		name: FilterType.AFFECTS_SELECTION,
-		value: FilterType.AFFECTS_SELECTION
-	},
-	{
-		name: FilterType.SELECTION_IS_ROOT,
-		value: FilterType.SELECTION_IS_ROOT
-	}
-] as SelectEditorItem[];
-
-interface LabelsLoggerState {
-	search: string;
-	filter: FilterType;
-}
-
-interface LabelLogItem {
-	label: string;
-	root: Container;
-	_rootId: number;
-	time: number;
-}
-
-
-let labelNamesProps = {
-	className: 'selectable-text labels-log-label',
-	title: CTRL_READABLE + '+click to copy label`s name',
-	onMouseDown: copyTextByClick
-};
-
-
-const log: LabelLogItem[] = [];
-
-let instance: LabelsLogger;
-
-export default class LabelsLogger extends ComponentDebounced<LabelsLoggerProps, LabelsLoggerState> {
-
-	searchInputProps: KeyedObject;
-	constructor(props: LabelsLoggerProps) {
-		super(props);
-
-		this.state = {
-			search: '',
-			filter: FilterType.ALL
-		};
-
-		this.searchInputProps = {
-			className: 'search-input',
-			onInput: this.onSearchChange.bind(this),
-			placeholder: 'Search'
-		};
-	}
-
-	onSearchChange(ev: InputEvent) {
-		let search = (ev.target as HTMLInputElement).value.toLowerCase();
-		this.setState({ search });
-	}
-
-	clearSearch() {
-		this.setState({search: undefined});
-	}
-
-	static allLabels = new Set() as Set<string>;
-
-	static logGotoLabelRecursive(label: string, root:Container) {
-		this.allLabels.add(label);
-		if (instance && !game.currentScene?.___framesToSkip) {
-			log.push({label, root, _rootId: root.___id, time: game.time});
-			if (log.length > 1100) {
-				log.splice(0, 100);
-			}
-			instance.refresh();
-		}
-	}
-
-	static refresh() {
-		instance?.refresh();
-	}
-
-	componentDidMount(): void {
-		instance = this;
-	}
-
-	componentWillUnmount(): void {
-		instance = null!;
-	}
-
-	renderItem(item: LabelLogItem) {
-		const isRemoved = item._rootId !== item.root.___id;
-		const timeDelta = item.time - lastItemTime;
-		lastItemTime = item.time;
-		const timeSplitter = R.div({title: 'game.time shift in frames', className: 'labels-log-time'}, timeDelta ? ('+' + timeDelta) : undefined);
-
-		return R.fragment(
-			R.div(
-				{
-					className: isRemoved ? 'labels-log-item disabled' : (item.root.__nodeExtendData.isSelected ? 'labels-log-item labels-log-item-selected' : 'labels-log-item'),
-					onClick: isRemoved ? undefined : () => {
-						game.editor.selection.select(item.root);
-						instance.refresh();
-					}
-				},
-				timeSplitter,
-				R.span(labelNamesProps, item.label),
-				R.sceneNode(item.root)
-			)
-		);
-	}
-
-	render(): ComponentChild {
-		let list = log;
-		if (this.state.search) {
-			list = log.filter((item) => {
-				if (searchByRegexpOrText(item.label, this.state.search)) {
-					return true;
-				}
-				if (item._rootId === item.root.___id) {
-					if (searchByRegexpOrText(item.root.name || '', this.state.search)) {
-						return true;
-					}
-					if (searchByRegexpOrText((item.root.constructor as SourceMappedConstructor).__className!, this.state.search)) {
-						return true;
-					}
-				}
-			});
-		}
-
-		if (this.state.filter !== FilterType.ALL) {
-			const filterContainers = new Set();
-			for (let container of game.editor.selection) {
-				filterContainers.add(container);
-				if (this.state.filter === FilterType.AFFECTS_SELECTION) {
-					while (container) {
-						container = container.parent;
-						filterContainers.add(container);
-					}
-				}
-			}
-			list = list.filter(i => filterContainers.has(i.root));
-		}
-
-		lastItemTime = list[0]?.time || 0;
-
-		return R.fragment(
-			R.btn('×', LabelsLogger.toggle, 'Hide labels logger', 'close-window-btn', { key: 'Escape' }),
-
-			R.div({className: 'choose-list-header'},
-				h(SelectEditor, {
-					select: filterSelect,
-					onChange: (filter: FilterType) => {
-						this.setState({filter});
-					}, value: this.state.filter
-				}), R.input(this.searchInputProps), R.btn('×', this.clearSearch, 'Discard search filter', 'close-btn clear-search-btn')
-			),
-			R.div(listProps,
-				list.map(this.renderItem)
-			),
-			R.btn(R.fragment('CLEAR', R.icon('delete')), clearLog, undefined, 'danger', undefined, !log.length)
-		);
-	}
-
-	static toggle() {
-		game.editor.settings.setItem('labels-logger-shown', !game.editor.settings.getItem('labels-logger-shown'));
-		LabelsLogger.renderWindow();
-	}
-
-	static renderWindow() {
-		if (game.editor.settings.getItem('labels-logger-shown')) {
-			LabelsLogger.show();
-		} else {
-			LabelsLogger.hide();
-		}
-	}
-
-	static show() {
-		showAdditionalWindow('labels-logger', 'LabelsLogger', 'Labels Logger',
-			h(LabelsLogger, null),
-			50, 50, 80, 80, 450, 200);
-		Window.bringWindowForward('#labels-logger');
-	}
-
-	static hide() {
-		hideAdditionalWindow('labels-logger');
-	}
-}
-
-window.setTimeout(LabelsLogger.renderWindow, 100,);
-
-function clearLog() {
-	log.length = 0;
-	instance?.refresh();
-}
-
-editorEvents.on('playToggle', clearLog);
-
-MainMenu.injectMenu('settings', [{
-	name: () => {
-		return R.span(null, R.span({ className: '.menu-icon' }, game.editor.settings.getItem('labels-logger-shown') ? '☑' : '☐'), ' Labels logger');
-	},
-	hotkey: { key: 'l', ctrlKey: true, shiftKey: true },
-	onClick: () => {
-		LabelsLogger.toggle();
-	},
-	stayAfterClick: true
-}], 'labels-logger', -1);
 </file>
 
 <file path="thing-editor/src/editor/ui/props-editor/props-editor.ts">
@@ -33300,26 +32209,1112 @@ function validateAreas() {
 /// #endif
 </file>
 
-<file path=".gitignore">
-*.ogg
-*.aac
+<file path="games/dear-project/assets/main.s.json">
+{
+	"c": "Scene",
+	"p": {
+		"name": "main",
+		"interactive": true,
+		"__description": "",
+		"backgroundColor": 276
+	},
+	":": [
+		{
+			"c": "Text",
+			"p": {
+				"x": 874,
+				"y": 98,
+				"text": "",
+				"translatableText": "example_title",
+				"style.align": "left",
+				"verticalAlign": "top",
+				"style.fill": "#9fafc1"
+			}
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"visible": false,
+				"timeline": {
+					"l": {},
+					"p": 0.02,
+					"d": 0.85,
+					"f": [
+						{
+							"n": "image",
+							"t": [
+								{
+									"v": "symbols/fuel0000.png",
+									"t": 0,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 2,
+									"m": 2
+								},
+								{
+									"v": "bunny.png",
+									"t": 4,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 6,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 8,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 10,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 12,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 14,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 16,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 18,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 20,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 22,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 24,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 26,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0014.png",
+									"t": 28,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 30,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 32,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 34,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 36,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 38,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 40,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 42,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 44,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 46,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 48,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 50,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0002.png",
+									"t": 52,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 54,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0000.png",
+									"t": 56,
+									"m": 2,
+									"j": 0
+								}
+							]
+						},
+						{
+							"n": "x",
+							"t": [
+								{
+									"v": 442,
+									"t": 0
+								},
+								{
+									"v": 714,
+									"t": 179,
+									"r": -418
+								},
+								{
+									"v": 1273,
+									"t": 293,
+									"j": 0,
+									"r": -418
+								}
+							]
+						},
+						{
+							"n": "y",
+							"t": [
+								{
+									"v": 577,
+									"t": 0
+								},
+								{
+									"v": 359,
+									"t": 105,
+									"r": -418
+								},
+								{
+									"v": 807,
+									"t": 221,
+									"j": 0,
+									"r": -418
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"c": "Resizer",
+			"p": {
+				"resizeX": true,
+				"resizeY": true
+			},
+			":": [
+				{
+					"c": "Fill",
+					"p": {
+						"image": "sky.png",
+						"tint": 16777215,
+						"blendMode": 0,
+						"xShiftSpeed": 0.01
+					}
+				}
+			]
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 646,
+				"y": 559,
+				"interactive": true,
+				"scale.x": 1.6,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"timeline": {
+					"l": {},
+					"p": 0.02,
+					"d": 0.85,
+					"f": [
+						{
+							"n": "image",
+							"t": [
+								{
+									"v": "bunny.png",
+									"t": 0,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 2,
+									"m": 2
+								},
+								{
+									"v": "bunny.png",
+									"t": 4,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 6,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 8,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 10,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 12,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 14,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 16,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 18,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 20,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 22,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 24,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 26,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0014.png",
+									"t": 28,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0013.png",
+									"t": 30,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0012.png",
+									"t": 32,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0011.png",
+									"t": 34,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0010.png",
+									"t": 36,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0009.png",
+									"t": 38,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0008.png",
+									"t": 40,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0007.png",
+									"t": 42,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0006.png",
+									"t": 44,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0005.png",
+									"t": 46,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0004.png",
+									"t": 48,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0003.png",
+									"t": 50,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0002.png",
+									"t": 52,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0001.png",
+									"t": 54,
+									"m": 2
+								},
+								{
+									"v": "symbols/fuel0000.png",
+									"t": 56,
+									"m": 2,
+									"j": 0
+								}
+							]
+						},
+						{
+							"n": "x",
+							"t": [
+								{
+									"v": 442,
+									"t": 0
+								},
+								{
+									"v": 714,
+									"t": 179,
+									"r": -418
+								},
+								{
+									"v": 1273,
+									"t": 293,
+									"j": 0,
+									"r": -418
+								}
+							]
+						},
+						{
+							"n": "y",
+							"t": [
+								{
+									"v": 577,
+									"t": 0
+								},
+								{
+									"v": 359,
+									"t": 105,
+									"r": -418
+								},
+								{
+									"v": 807,
+									"t": 221,
+									"j": 0,
+									"r": -418
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 646,
+				"y": 559,
+				"visible": false,
+				"scale.x": 1.6,
+				"image": "bunny.png"
+			},
+			":": [
+				{
+					"c": "Bunny",
+					"p": {
+						"x": 219,
+						"y": -595,
+						"rotation": -3.14,
+						"interactive": true,
+						"scale.x": 1.6,
+						"scale.y": 15,
+						"image": "bunny.png"
+					}
+				},
+				{
+					"c": "Bunny",
+					"p": {
+						"x": 219,
+						"y": 670,
+						"interactive": true,
+						"scale.x": 1.6,
+						"scale.y": 15,
+						"image": "bunny.png"
+					}
+				}
+			]
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"timeline": {
+					"l": {},
+					"p": 0.02,
+					"d": 0.85,
+					"f": [
+						{
+							"n": "x",
+							"t": [
+								{
+									"v": 1955,
+									"t": 0,
+									"m": 1
+								},
+								{
+									"v": 442,
+									"t": 222,
+									"m": 1
+								}
+							]
+						},
+						{
+							"n": "y",
+							"t": [
+								{
+									"v": 577,
+									"t": 0
+								}
+							]
+						},
+						{
+							"n": "image",
+							"t": [
+								{
+									"v": "wall.png",
+									"t": 0,
+									"m": 2
+								},
+								{
+									"v": "wall.png",
+									"t": 222,
+									"m": 2
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"name": "sky",
+				"x": -529,
+				"y": 580,
+				"alpha": 0,
+				"visible": false,
+				"image": "sky.png",
+				"tint": 16185078,
+				"timeline": {
+					"l": {
+						"step0": 1080,
+						"step1": 362,
+						"step2": 722
+					},
+					"p": 0.02,
+					"d": 0.85,
+					"f": []
+				}
+			},
+			":": [
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "1",
+						"y": 580,
+						"image": "sky.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 1024,
+											"t": 0
+										},
+										{
+											"v": 0,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 3072,
+											"t": 361,
+											"m": 1
+										},
+										{
+											"v": 2048,
+											"t": 726,
+											"m": 1
+										},
+										{
+											"v": 1024,
+											"t": 1080,
+											"m": 1,
+											"j": 0
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "2",
+						"y": 580,
+						"image": "sky.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 2048,
+											"t": 0
+										},
+										{
+											"v": 1024,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 0,
+											"t": 717,
+											"m": 1
+										},
+										{
+											"v": 3072,
+											"t": 720,
+											"m": 2
+										},
+										{
+											"v": 2048,
+											"t": 1080,
+											"m": 1,
+											"j": 0
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "3",
+						"scale.x": 1.0400000000000007,
+						"image": "sky.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 3072,
+											"t": 0
+										},
+										{
+											"v": 2048,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 1024,
+											"t": 720,
+											"m": 1
+										},
+										{
+											"v": 0,
+											"t": 1080,
+											"m": 1
+										},
+										{
+											"v": 3072,
+											"t": 1081,
+											"m": 2,
+											"j": 0
+										}
+									]
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"c": "MovieClip",
+			"p": {
+				"name": "sky",
+				"x": -529,
+				"y": 548,
+				"alpha": 0,
+				"visible": false,
+				"scale.y": 1.07,
+				"image": "sky.png",
+				"tint": 16185078,
+				"timeline": {
+					"l": {
+						"step0": 1080,
+						"step1": 362,
+						"step2": 722
+					},
+					"p": 0.02,
+					"d": 0.85,
+					"f": []
+				}
+			},
+			":": [
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "1",
+						"y": 548,
+						"alpha": 0,
+						"visible": false,
+						"scale.y": 1.07,
+						"image": "sky1.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 1020,
+											"t": 0
+										},
+										{
+											"v": 0,
+											"t": 359,
+											"m": 1
+										},
+										{
+											"v": 3060,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 2040,
+											"t": 720,
+											"m": 1
+										},
+										{
+											"v": 1020,
+											"t": 1080,
+											"m": 1,
+											"j": 0
+										}
+									]
+								},
+								{
+									"n": "scale.x",
+									"t": [
+										{
+											"v": 1,
+											"t": 0
+										},
+										{
+											"v": 1.04,
+											"t": 718
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "2",
+						"image": "sky1.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 2040,
+											"t": 0
+										},
+										{
+											"v": 1020,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 0,
+											"t": 719,
+											"m": 1
+										},
+										{
+											"v": 3060,
+											"t": 720,
+											"m": 2
+										},
+										{
+											"v": 2040,
+											"t": 1080,
+											"m": 1,
+											"j": 0
+										}
+									]
+								},
+								{
+									"n": "scale.x",
+									"t": [
+										{
+											"v": 1,
+											"t": 0
+										},
+										{
+											"v": 1.04,
+											"t": 718
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"c": "MovieClip",
+					"p": {
+						"name": "3",
+						"y": 548,
+						"alpha": 0,
+						"visible": false,
+						"scale.y": 1.07,
+						"image": "sky1.png",
+						"tint": 16185078,
+						"timeline": {
+							"l": {},
+							"p": 0.02,
+							"d": 0.85,
+							"f": [
+								{
+									"n": "x",
+									"t": [
+										{
+											"v": 3060,
+											"t": 0
+										},
+										{
+											"v": 2040,
+											"t": 360,
+											"m": 1
+										},
+										{
+											"v": 1020,
+											"t": 720,
+											"m": 1
+										},
+										{
+											"v": 0,
+											"t": 1079,
+											"m": 1
+										},
+										{
+											"v": 3060,
+											"t": 1080,
+											"m": 2,
+											"j": 0
+										}
+									]
+								},
+								{
+									"n": "scale.x",
+									"t": [
+										{
+											"v": 1,
+											"t": 0
+										},
+										{
+											"v": 1.04,
+											"t": 718
+										}
+									]
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"c": "Resizer",
+			"p": {
+				"name": "resizer",
+				"visible": false,
+				"scale.x": 3,
+				"scale.y": 2
+			},
+			":": [
+				{
+					"c": "Fill",
+					"p": {
+						"name": "background",
+						"visible": false,
+						"image": "sky.png",
+						"tint": 16777215,
+						"blendMode": 0,
+						"xRepeat": 3,
+						"yRepeat": 2,
+						"xShiftSpeed": 0.01
+					}
+				}
+			]
+		},
+		{
+			"c": "Fill",
+			"p": {
+				"scale.x": 2.088,
+				"scale.y": 1.055,
+				"image": "sky.png",
+				"tint": 16777215,
+				"blendMode": 0,
+				"xRepeat": 2.088,
+				"yRepeat": 1.055,
+				"xShiftSpeed": 0.01
+			}
+		},
+		{
+			"c": "Fill",
+			"p": {
+				"visible": false,
+				"scale.x": 2.088,
+				"scale.y": 1.055,
+				"image": "sky.png",
+				"tint": 16777215,
+				"blendMode": 0,
+				"xRepeat": 2.088,
+				"yRepeat": 1.055,
+				"xShiftSpeed": 0.01
+			}
+		}
+	]
+}
+</file>
 
-node_modules
+<file path="games/dear-project/assets/src/custom/bunny.c.ts">
+import editable from 'thing-editor/src/editor/props-editor/editable';
+import game from 'thing-editor/src/engine/game';
+import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
+import type BunnyGameSceneLogic from './bunny-game-scene-logic.c';
+import { GAME_CONFIG } from './game-config';
 
-*.config.js.timestamp-*.mjs
+export default class Bunny extends DSprite {
 
+	@editable()
+	gravity = GAME_CONFIG.BUNNY.GRAVITY;
 
-/libs
+	@editable()
+	jumpVelocity: number = GAME_CONFIG.BUNNY.JUMP_VELOCITY;
 
-/thing-editor/src/editor/localization-typings.ts
-/thing-editor/src/editor/schema-thing-project.json
-/thing-editor/src/editor/current-classes-typings.ts
-/**/~*
-**/.tmp/
-/thing-editor/src/editor/prefabs-typing.ts
-/thing-editor/src/editor/current-scene-typings.ts
-/tsconfig.json
-/thing-editor.code-workspace
+	@editable()
+	forwardSpeed: number = GAME_CONFIG.BUNNY.FORWARD_SPEED;
+
+	private isAlive: boolean = true;
+
+	init() {
+		super.init();
+
+		this.x = GAME_CONFIG.BUNNY.INITIAL_X;
+
+		if (game.isPortrait) {
+			this.y = game.W / 2;
+		} else {
+			this.y = game.H / 2;
+		}
+
+		this.xSpeed = GAME_CONFIG.BUNNY.INITIAL_X_SPEED;
+		this.ySpeed = GAME_CONFIG.BUNNY.INITIAL_Y_SPEED;
+		this.isAlive = true;
+
+		const stage = this.getRootContainer() as BunnyGameSceneLogic;
+
+		if (stage) {
+			stage.interactive = true;
+		}
+		stage.onMouseDown = this.onJump.bind(this);
+	}
+
+	onJump() {
+		if (this.isAlive) {
+			this.ySpeed += GAME_CONFIG.BUNNY.JUMP_VELOCITY;
+		}
+	}
+
+	update() {
+		if (!this.isAlive) {
+			return;
+		}
+
+		this.ySpeed += this.gravity * GAME_CONFIG.BUNNY.GRAVITY_MULTIPLIER;
+		const TARGET_X = game.W * GAME_CONFIG.BUNNY.TARGET_X_MULTIPLIER;
+
+		if (this.x >= TARGET_X) {
+			this.xSpeed = GAME_CONFIG.BUNNY.INITIAL_X_SPEED;
+			this.x = TARGET_X;
+		} else {
+			this.xSpeed = GAME_CONFIG.BUNNY.FORWARD_SPEED;
+		}
+
+		super.update();
+	}
+
+	onRemove() {
+		const stage = this.getRootContainer();
+		if (stage) {
+			stage.off('click', this.onJump, this);
+		}
+		super.onRemove();
+	}
+}
+</file>
+
+<file path="games/dear-project/assets/src/custom/game-config.ts">
+export const GAME_CONFIG = {
+	PIPE: {
+		SPAWN_INTERVAL: 50,
+		SPAWN_POINT_X: 2400,
+		SPEED_X: -10,
+		MIN_Y: 350,
+		MAX_Y: 730,
+		OBSTACLE_WIDTH_HALF: 60,
+		GAP_SIZE_HALF: 230,
+		COLLISION_RADIUS: 0,
+		RETURN_TO_POOL_X: 0,
+		PIPE_RANGE: 400,
+		FAR_AWAY_X: -300,
+	},
+	BUNNY: {
+		GRAVITY: 2,
+		JUMP_VELOCITY: -10,
+		FORWARD_SPEED: 2,
+		TARGET_X_MULTIPLIER: 0.5,
+		INITIAL_X: 0,
+		INITIAL_X_SPEED: 0,
+		INITIAL_Y_SPEED: 0,
+		GRAVITY_MULTIPLIER: 0.1,
+	},
+	BACKGROUND: {
+		SPEED_X: -10,
+		CHECK_DISTANCE: 100,
+		INITIAL_PIECES_EXTRA: 1,
+		INITIAL_X: 0,
+		SPRITE_INITIAL_X: 0,
+	},
+	SCENE: {
+		INITIAL_SCORE: 0,
+		GAME_OVER_ALPHA: 1,
+	},
+	COLLISION: {
+		EPSILON: 0.01,
+	},
+} as const;
+</file>
+
+<file path="games/dear-project/thing-project.json">
+{
+	"defaultFont": "Roboto, Arial",
+	"version": "0.0.9",
+	"loadOnDemandTextures": {
+		"sky.png": 8
+	},
+	"__group": "thing-editor-demos",
+	"__loadOnDemandTexturesFolders": {
+		"ondemand": 2
+	},
+	"id": "flappy-dear.pixel-cave.com",
+	"title": "Flappy dear",
+	"icon": "assets/bunny.png",
+	"libs": [
+		"example-lib"
+	],
+	"autoFullscreenDesktop": true,
+	"autoFullscreenMobile": false
+}
 </file>
 
 <file path="thing-editor/electron-main/build-config.js">
@@ -33370,64 +33365,6 @@ module.exports = (_root, publicDir, outDir, debug, _projectDesc) => {
 			}
 		}
 	};
-};
-</file>
-
-<file path="thing-editor/src/editor/ui/assets-view/asset-preview.ts">
-import { Color } from 'pixi.js';
-import R from 'thing-editor/src/engine/basic-preact-fabrics';
-import game from 'thing-editor/src/engine/game';
-import Lib from 'thing-editor/src/engine/lib';
-import type Scene from 'thing-editor/src/engine/lib/assets/src/basic/scene.c';
-import { AssetType, type FileDesc } from '../../fs';
-import { editorEvents } from '../../utils/editor-events';
-import exportAsPng from '../../utils/export-as-png';
-
-const NO_PREVIEW_IMG = document.createElement('img');
-NO_PREVIEW_IMG.src = '/thing-editor/img/broken-image.png';
-const prefabsPreviewsCache = new Map() as Map<string, HTMLCanvasElement>;
-const scenesPreviewsCache = new Map() as Map<string, HTMLCanvasElement>;
-
-editorEvents.on('prefabUpdated', (prefabName:string) => {
-	prefabsPreviewsCache.delete(prefabName);
-});
-
-editorEvents.on('sceneUpdate', (sceneName:string) => {
-	prefabsPreviewsCache.delete(sceneName);
-});
-
-export const assetPreview = (file: FileDesc, width = 30, height = 30) => {
-	return R.span({
-		className: 'assets-item-preview-pic',
-		ref: (ref: HTMLSpanElement) => {
-			if (ref && !game.editor.buildProjectAndExit) {
-
-				const isScene = file.assetType === AssetType.SCENE;
-
-				const cache = isScene ? scenesPreviewsCache : prefabsPreviewsCache;
-
-				const img = cache.get(file.assetName);
-				if (img) {
-					ref.appendChild(img);
-				} else {
-					setTimeout(() => {
-						const o = isScene ? ((game.editor.currentSceneName === file.assetName && game.currentScene) ? game.currentScene : Lib.__loadSceneNoInit(file.assetName)) : Lib.__loadPrefabNoInit(file.assetName);
-						const bgColor = isScene ? new Color((o as Scene).backgroundColor).toHex() : '#000';
-						(exportAsPng(o, width, height, -1, undefined, true, !o.parent) as any).then((canvas: HTMLCanvasElement) => {
-							if (!canvas) {
-								canvas = NO_PREVIEW_IMG as any;
-							} else {
-								canvas.style.backgroundColor = bgColor;
-							}
-							cache.set(file.assetName, canvas);
-							ref.querySelector('canvas')?.remove();
-							ref.appendChild(canvas);
-						});
-					}, 10);
-				}
-			}
-		},
-	});
 };
 </file>
 
@@ -38051,51 +37988,135 @@ export {
 };
 </file>
 
-<file path="package.json">
-{
-  "name": "vite-typescript-starter",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "dependencies": "node ./thing-editor/demo/install.js"
-  },
-  "devDependencies": {
-    "@pixi/filter-outline": "^5.2.0",
-    "@stylistic/eslint-plugin-ts": "^1.7.0",
-    "@types/events": "^3.0.0",
-    "@types/webfontloader": "^1.6.36",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "chokidar": "^3.5.3",
-    "electron": "^39.1.2",
-    "electron-settings": "^3.2.0",
-    "eslint": "^8.42.0",
-    "events": "^3.3.0",
-    "express": "^4.18.2",
-    "md5-file": "^5.0.0",
-    "node-ssh": "^13.1.0",
-    "open": "^9.1.0",
-    "pixi-spine": "^4.0.4",
-    "pixi.js": "^7.2.4",
-    "preact": "^10.15.1",
-    "ps-list": "^8.1.1",
-    "sharp": "^0.32.1",
-    "source-map-js": "^1.0.2",
-    "typed-emitter": "^2.1.0",
-    "typescript": "^5.9.2",
-    "vite": "^5.4.11",
-    "vite-plugin-image-optimizer": "^1.1.6",
-    "zip-dir": "^2.0.0"
-  },
-  "dependencies": {
-    "ffmpeg": "^0.0.4",
-    "repomix": "^1.9.1",
-    "zh": "^0.0.0"
-  }
+<file path=".gitignore">
+*.ogg
+*.aac
+
+node_modules
+
+*.config.js.timestamp-*.mjs
+
+
+/libs
+
+/thing-editor/src/editor/localization-typings.ts
+/thing-editor/src/editor/schema-thing-project.json
+/thing-editor/src/editor/current-classes-typings.ts
+/**/~*
+**/.tmp/
+/thing-editor/src/editor/prefabs-typing.ts
+/thing-editor/src/editor/current-scene-typings.ts
+/tsconfig.json
+/thing-editor.code-workspace
+</file>
+
+<file path="games/dear-project/assets/src/custom/pipe-spawner.c.ts">
+// this class generated with Thing-Editor's component's Wizard,
+// and contain basic game-object's methods.
+// For details: https://github.com/Megabyteceer/thing-editor/wiki/Custom-Components#custom-component-methods
+
+import editable from 'thing-editor/src/editor/props-editor/editable';
+import Container from 'thing-editor/src/engine/lib/assets/src/basic/container.c';
+import type PipesContainer from './pipes-contaner.c';
+import Lib from 'thing-editor/src/engine/lib';
+import game from 'thing-editor/src/engine/game';
+import Bunny from './bunny.c';
+import type BunnyGameSceneLogic from './bunny-game-scene-logic.c';
+import { GAME_CONFIG } from './game-config';
+
+export default class PipeSpawner extends Container {
+
+    @editable()
+    spawnTime: number = GAME_CONFIG.PIPE.SPAWN_INTERVAL;
+
+    @editable({ type: 'prefab'})
+    pipePath: string | null = null;
+
+    @editable()
+    spawnPointX: number = GAME_CONFIG.PIPE.SPAWN_POINT_X;
+
+    @editable()
+    public speedX: number = GAME_CONFIG.PIPE.SPEED_X;
+
+    @editable()
+    isDynamicPosition: boolean = true;
+
+    @editable()
+    private pipesRange: number = GAME_CONFIG.PIPE.PIPE_RANGE;
+
+    @editable()
+    private MIN: number = GAME_CONFIG.PIPE.MIN_Y;
+
+    @editable()
+    private MAX: number = GAME_CONFIG.PIPE.MAX_Y;
+
+    private pool: PipesContainer[] = [];
+
+    private startTime: number = 0;
+    private bunny: Bunny | null = null;
+    private gameScene: BunnyGameSceneLogic | null = null;
+    private pipeId: number = 0;
+
+    init() {
+    	super.init();
+    	this.startTime = game.time;
+    	this.bunny = this.getRootContainer().findChildrenByType(Bunny)[0] as Bunny;
+    	this.gameScene = this.getRootContainer() as BunnyGameSceneLogic;
+    }
+
+    public registerInPool(pipe : PipesContainer) {
+    	this.pool.push(pipe);
+    }
+
+    public spawn() {
+    	let pipe: PipesContainer;
+
+    	if (this.pool.length > 0) {
+    		pipe = this.pool.pop()!;
+    	} else if (this.pipePath) {
+    		pipe = Lib.loadPrefab(this.pipePath)! as PipesContainer;
+    		this.addChild(pipe);
+    	} else {
+    		return;
+    	}
+
+    	if (this.isDynamicPosition) {
+    		pipe.y = Math.floor(Math.random() * this.pipesRange) + (game.H / 2 - this.pipesRange / 2);
+    	} else {
+    		pipe.y = Math.floor(Math.random() * (this.MAX - this.MIN + 1)) + this.MIN;
+    	}
+
+    	pipe.parent = this;
+    	pipe.visible = true;
+    	pipe.speedX = this.speedX;
+    	pipe.bunny = this.bunny;
+    	pipe.pipeId = this.pipeId++;
+    	pipe.scene = this.gameScene;
+
+    	pipe.wasPassed = false;
+    	pipe.lastCheckX = 0;
+    	pipe.x = this.spawnPointX;
+
+    	if (!this.children.includes(pipe)) {
+    		this.addChild(pipe);
+    	}
+    }
+
+    update() {
+    	const dtTime = game.time - this.startTime;
+    	if (dtTime == this.spawnTime) {
+    		this.startTime = game.time;
+    		this.spawn();
+    	}
+    	super.update();
+    }
+
+    onRemove() {
+    	this.bunny = null;
+    	this.gameScene = null;
+    	this.pool = [];
+    	super.onRemove();
+    }
 }
 </file>
 
@@ -39866,6 +39887,54 @@ window.addEventListener('game-will-init', () => {
 		}).catch((er) => { throw er; });
 	};
 });
+</file>
+
+<file path="package.json">
+{
+  "name": "vite-typescript-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "dependencies": "node ./thing-editor/demo/install.js"
+  },
+  "devDependencies": {
+    "@pixi/filter-outline": "^5.2.0",
+    "@stylistic/eslint-plugin-ts": "^1.7.0",
+    "@types/events": "^3.0.0",
+    "@types/webfontloader": "^1.6.36",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "chokidar": "^3.5.3",
+    "electron": "^39.1.2",
+    "electron-settings": "^3.2.0",
+    "eslint": "^8.42.0",
+    "events": "^3.3.0",
+    "express": "^4.18.2",
+    "md5-file": "^5.0.0",
+    "node-ssh": "^13.1.0",
+    "open": "^9.1.0",
+    "pixi-spine": "^4.0.4",
+    "pixi.js": "^7.2.4",
+    "preact": "^10.15.1",
+    "ps-list": "^8.1.1",
+    "sharp": "^0.32.1",
+    "source-map-js": "^1.0.2",
+    "typed-emitter": "^2.1.0",
+    "typescript": "^5.9.2",
+    "vite": "^5.4.11",
+    "vite-plugin-image-optimizer": "^1.1.6",
+    "zip-dir": "^2.0.0"
+  },
+  "dependencies": {
+    "ffmpeg": "^0.0.4",
+    "repomix": "^1.9.1",
+    "zh": "^0.0.0"
+  }
+}
 </file>
 
 <file path="thing-editor/src/editor/fs.ts">
