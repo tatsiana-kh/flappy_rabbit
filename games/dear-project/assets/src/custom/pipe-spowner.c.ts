@@ -9,43 +9,32 @@ import Lib from 'thing-editor/src/engine/lib';
 import game from 'thing-editor/src/engine/game';
 import Bunny from './bunny.c';
 import type BunnyGameSceneLogic from './bunny-game-scene-logic.c';
-import { GAME_CONFIG } from './game-config';
 
-export default class PipeSpawner extends Container {
+const SPAWN_INTERVAL = 20;
+const SPOWN_POINT_X = 800;
+
+export default class PipeSpowner extends Container {
 
 	@editable()
-	spawnTime: number = GAME_CONFIG.PIPE.SPAWN_INTERVAL;
+	spownTime: number = SPAWN_INTERVAL;
 
 	@editable({ type: 'prefab'})
 	pipePath: string | null = null;
 
-	@editable()
-	spawnPointX: number = GAME_CONFIG.PIPE.SPAWN_POINT_X;
 
 	@editable()
-	private speedX: number = GAME_CONFIG.PIPE.SPEED_X;
-
-	@editable()
-	isDynamicPosition: boolean = true;
-
-	@editable()
-	private pipesRange: number = GAME_CONFIG.PIPE.PIPE_RANGE;
-
-	@editable()
-	private MIN: number = GAME_CONFIG.PIPE.MIN_Y;
-
-	@editable()
-	private MAX: number = GAME_CONFIG.PIPE.MAX_Y;
+	spownPointX: number = SPOWN_POINT_X;
 
 	private pool: PipesContainer[] = [];
 
 	private startTime: number = 0;
-	private bunny: Bunny | null = null;
-	private gameScene: BunnyGameSceneLogic | null = null;
+	private bunny: Bunny | undefined;
+	private gameScene: BunnyGameSceneLogic | undefined;
 	private pipeId: number = 0;
 
 	init() {
 		super.init();
+		console.log('path = ' + this.pipePath + ' x=' + this.spownPointX);
 		this.startTime = game.time;
 		this.bunny = this.getRootContainer().findChildrenByType(Bunny)[0] as Bunny;
 		this.gameScene = this.getRootContainer() as BunnyGameSceneLogic;
@@ -53,50 +42,46 @@ export default class PipeSpawner extends Container {
 
 	public registerInPool(pipe : PipesContainer) {
 		pipe.parent?.removeChild(pipe);
-		pipe.x = 0;
+		pipe.wasPassed = false;
 		this.pool.push(pipe);
 	}
 
-	public spawn() {
+	public spown() {
 		if (this.pool.length == 0) {
 			if (this.pipePath) {
 				const pipe = Lib.loadPrefab(this.pipePath)! as PipesContainer;
-				if (this.isDynamicPosition) {
-					pipe.y = Math.floor(Math.random() * this.pipesRange) + (game.H / 2 - this.pipesRange / 2);
-				} else {
-					pipe.y = Math.floor(Math.random() * (this.MAX - this.MIN + 1)) + this.MIN;
-				}
-				pipe.speedX = this.speedX;
 				pipe.parent = this;
 				pipe.bunny = this.bunny;
 				pipe.pipeId = this.pipeId++;
 				pipe.scene = this.gameScene;
+				console.log('spown pipe=' + pipe.pipeId);
+				//console.log('pipe.bunny = ' + pipe.bunny?.xSpeed);
 				this.pool.push(pipe);
 			}
+
 		}
 		const pipe = this.pool.pop()!;
-		pipe.wasPassed = false;
-		pipe.lastCheckX = 0;
-		pipe.x = this.spawnPointX;
+		pipe.x = this.spownPointX;
+		//pipe.parent = null;
 		this.addChild(pipe);
 	}
 
 	update() {
+		// Add your update code here
+
 		const dtTime = game.time - this.startTime;
-		if (dtTime == this.spawnTime) {
+		//	console.log('dt time = ' + dtTime);
+		if (dtTime == this.spownTime) {
 			this.startTime = game.time;
-			this.spawn();
+			this.spown();
 		}
 		super.update();
 	}
 
 	onRemove() {
-		while (this.children.length > 0) {
-			this.removeChild(this.children[0]);
-		}
-		this.bunny = null;
-		this.gameScene = null;
-		this.pool = [];
+		// Add onRemove code here
+		this.bunny = undefined;
+		this.gameScene = undefined;
 		super.onRemove();
 	}
 }

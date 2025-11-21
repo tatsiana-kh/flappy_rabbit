@@ -1,8 +1,8 @@
 import Container from 'thing-editor/src/engine/lib/assets/src/basic/container.c';
 import type PipeSpawner from './pipe-spawner.c.ts';
-import type Bunny from './bunny.c';
-import type BunnyGameSceneLogic from './BunnyGameSceneLogic.c';
-import { GAME_CONFIG } from './game-config';
+import type Bunny from './bunny.c.ts';
+import type BunnyGameSceneLogic from './bunny-game-scene-logic.c.ts';
+import { GAME_CONFIG } from './game-config.ts';
 
 export default class PipesContainer extends Container {
 
