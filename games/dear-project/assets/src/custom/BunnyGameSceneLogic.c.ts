@@ -1,6 +1,5 @@
 import Scene from 'thing-editor/src/engine/lib/assets/src/basic/scene.c';
 import { GAME_CONFIG } from './game-config';
-import game from 'thing-editor/src/engine/game';
 
 export default class BunnyGameSceneLogic extends Scene {
 
@@ -10,14 +9,9 @@ export default class BunnyGameSceneLogic extends Scene {
 
 	init() {
 		super.init();
-		console.log('logic init');
-		//`	this.width = game.W;
-		//	this.height = game.H;
 		this.score = GAME_CONFIG.SCENE.INITIAL_SCORE;
 		this.scoreText = this.findChildByName('counterText');
 		this.gameOverText = this.findChildByName('GameOverText');
-		if (this.gameOverText && this.gameOverText.text) {
-		}
 		this.updateScoreDisplay();
 	}
 
@@ -42,7 +36,6 @@ export default class BunnyGameSceneLogic extends Scene {
 
 	gameOver() {
 		if (this.gameOverText) {
-			console.log('gameOverText');
 			this.gameOverText.alpha = GAME_CONFIG.SCENE.GAME_OVER_ALPHA;
 		}
 		this.onRemove();

@@ -22,6 +22,21 @@ export default class PipeSpawner extends Container {
 	@editable()
 	spawnPointX: number = GAME_CONFIG.PIPE.SPAWN_POINT_X;
 
+	@editable()
+	private speedX: number = GAME_CONFIG.PIPE.SPEED_X;
+
+	@editable()
+	isDynamicPosition: boolean = true;
+
+	@editable()
+	private pipesRange: number = GAME_CONFIG.PIPE.PIPE_RANGE;
+
+	@editable()
+	private MIN: number = GAME_CONFIG.PIPE.MIN_Y;
+
+	@editable()
+	private MAX: number = GAME_CONFIG.PIPE.MAX_Y;
+
 	private pool: PipesContainer[] = [];
 
 	private startTime: number = 0;
@@ -31,7 +46,6 @@ export default class PipeSpawner extends Container {
 
 	init() {
 		super.init();
-		//	console.log('path = ' + this.pipePath + ' x=' + this.spownPointX);
 		this.startTime = game.time;
 		this.bunny = this.getRootContainer().findChildrenByType(Bunny)[0] as Bunny;
 		this.gameScene = this.getRootContainer() as BunnyGameSceneLogic;
@@ -39,7 +53,7 @@ export default class PipeSpawner extends Container {
 
 	public registerInPool(pipe : PipesContainer) {
 		pipe.parent?.removeChild(pipe);
-		pipe.wasPassed = false;
+		pipe.x = 0;
 		this.pool.push(pipe);
 	}
 
@@ -47,16 +61,22 @@ export default class PipeSpawner extends Container {
 		if (this.pool.length == 0) {
 			if (this.pipePath) {
 				const pipe = Lib.loadPrefab(this.pipePath)! as PipesContainer;
+				if (this.isDynamicPosition) {
+					pipe.y = Math.floor(Math.random() * this.pipesRange) + (game.H / 2 - this.pipesRange / 2);
+				} else {
+					pipe.y = Math.floor(Math.random() * (this.MAX - this.MIN + 1)) + this.MIN;
+				}
+				pipe.speedX = this.speedX;
 				pipe.parent = this;
 				pipe.bunny = this.bunny;
 				pipe.pipeId = this.pipeId++;
 				pipe.scene = this.gameScene;
-				//	console.log('spown pipe=' + pipe.pipeId);
 				this.pool.push(pipe);
 			}
-
 		}
 		const pipe = this.pool.pop()!;
+		pipe.wasPassed = false;
+		pipe.lastCheckX = 0;
 		pipe.x = this.spawnPointX;
 		this.addChild(pipe);
 	}
@@ -71,8 +91,12 @@ export default class PipeSpawner extends Container {
 	}
 
 	onRemove() {
+		while (this.children.length > 0) {
+			this.removeChild(this.children[0]);
+		}
 		this.bunny = null;
 		this.gameScene = null;
+		this.pool = [];
 		super.onRemove();
 	}
 }

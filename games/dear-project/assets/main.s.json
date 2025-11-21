@@ -224,6 +224,24 @@
 			}
 		},
 		{
+			"c": "Resizer",
+			"p": {
+				"resizeX": true,
+				"resizeY": true
+			},
+			":": [
+				{
+					"c": "Fill",
+					"p": {
+						"image": "sky.png",
+						"tint": 16777215,
+						"blendMode": 0,
+						"xShiftSpeed": 0.01
+					}
+				}
+			]
+		},
+		{
 			"c": "Bunny",
 			"p": {
 				"x": 646,
@@ -895,6 +913,7 @@
 			"c": "BackgroundSpawner",
 			"p": {
 				"name": "background",
+				"visible": false,
 				"image": "sky.png"
 			},
 			":": [
@@ -986,6 +1005,33 @@
 					}
 				}
 			]
+		},
+		{
+			"c": "Fill",
+			"p": {
+				"scale.x": 2.088,
+				"scale.y": 1.055,
+				"image": "sky.png",
+				"tint": 16777215,
+				"blendMode": 0,
+				"xRepeat": 2.088,
+				"yRepeat": 1.055,
+				"xShiftSpeed": 0.01
+			}
+		},
+		{
+			"c": "Fill",
+			"p": {
+				"visible": false,
+				"scale.x": 2.088,
+				"scale.y": 1.055,
+				"image": "sky.png",
+				"tint": 16777215,
+				"blendMode": 0,
+				"xRepeat": 2.088,
+				"yRepeat": 1.055,
+				"xShiftSpeed": 0.01
+			}
 		}
 	]
 }

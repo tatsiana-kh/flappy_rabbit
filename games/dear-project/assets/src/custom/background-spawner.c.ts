@@ -53,10 +53,8 @@ export default class BackgroundSpawner extends Container {
 			piece.speedX = this.speedX;
 			piece.pieceId = this.pieceId++;
 			piece.setImage(this.image);
-		//	console.log('spawn new pieceId=' + piece.pieceId);
 		} else {
 			piece = this.pool.pop()!;
-		//	console.log('spawn from pool pieceId=' + piece.pieceId);
 		}
 
 		if (x !== undefined) {

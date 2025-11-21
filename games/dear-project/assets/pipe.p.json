@@ -20,7 +20,7 @@
 			"c": "Shape",
 			"p": {
 				"pivot.x": 50,
-				"height": 700,
+				"height": 1050,
 				"shapeFillColor": 7396430
 			}
 		},
@@ -30,7 +30,7 @@
 				"x": -25,
 				"y": 10,
 				"width": 50,
-				"height": 680,
+				"height": 1035,
 				"shapeFillColor": 9624654
 			}
 		}

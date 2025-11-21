@@ -21,7 +21,12 @@ export default class Bunny extends DSprite {
 		super.init();
 
 		this.x = GAME_CONFIG.BUNNY.INITIAL_X;
-		this.y = game.H * GAME_CONFIG.BUNNY.INITIAL_Y_MULTIPLIER;
+
+		if (game.isPortrait) {
+			this.y = game.W / 2;
+		} else {
+			this.y = game.H / 2;
+		}
 
 		this.xSpeed = GAME_CONFIG.BUNNY.INITIAL_X_SPEED;
 		this.ySpeed = GAME_CONFIG.BUNNY.INITIAL_Y_SPEED;

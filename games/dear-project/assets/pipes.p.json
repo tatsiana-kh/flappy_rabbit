@@ -2,7 +2,8 @@
 	"c": "PipesContainer",
 	"p": {
 		"name": "pipes",
-		"y": 153
+		"y": 153,
+		"pivot.y": 400
 	},
 	":": [
 		{
