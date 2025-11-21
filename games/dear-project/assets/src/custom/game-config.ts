@@ -10,6 +10,7 @@ export const GAME_CONFIG = {
 		COLLISION_RADIUS: 0,
 		RETURN_TO_POOL_X: 0,
 		PIPE_RANGE: 400,
+		FAR_AWAY_X: -300,
 	},
 	BUNNY: {
 		GRAVITY: 2,

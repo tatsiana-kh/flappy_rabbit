@@ -1,6 +1,5 @@
 {
 	"defaultFont": "Roboto, Arial",
-	
 	"version": "0.0.9",
 	"loadOnDemandTextures": {
 		"sky.png": 8
