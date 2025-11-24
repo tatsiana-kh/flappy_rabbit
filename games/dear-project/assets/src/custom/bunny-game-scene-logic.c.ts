@@ -1,5 +1,6 @@
 import Scene from 'thing-editor/src/engine/lib/assets/src/basic/scene.c';
 import { GAME_CONFIG } from './game-config';
+import type Fill from 'thing-editor/src/engine/lib/assets/src/basic/fill.c';
 
 export default class BunnyGameSceneLogic extends Scene {
 
@@ -13,6 +14,17 @@ export default class BunnyGameSceneLogic extends Scene {
 		this.scoreText = this.findChildByName('counterText');
 		this.gameOverText = this.findChildByName('GameOverText');
 		this.updateScoreDisplay();
+	}
+
+	public setAdaptiveBackgroundProps(name:string, scaleW: number, scaleH: number, repeatX: number, repeatY: number) {
+		const backgroundFill = this.findChildByName(name) as Fill;
+
+		if (backgroundFill) {
+			backgroundFill.scale.x = scaleW;
+			backgroundFill.scale.y = scaleH;
+			backgroundFill.xRepeat = repeatX;
+			backgroundFill.yRepeat = repeatY;
+		}
 	}
 
 	public increaseScore() {

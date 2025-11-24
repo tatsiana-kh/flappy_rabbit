@@ -1,0 +1,167 @@
+{
+	"c": "BunnyGameSceneLogic",
+	"p": {
+		"name": "orientscene"
+	},
+	":": [
+		{
+			"c": "OrientationTrigger",
+			"p": {
+				"name": "backgroundTrigger",
+				"onPortrait": "this.parent.setAdaptiveBackgroundProps,backgroundFill,1.055,1.875,1.055,1.875",
+				"onLandscape": "this.parent.setAdaptiveBackgroundProps,backgroundFill,1.875,1.055,1.875,1.055",
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitScaleX": 1,
+				"portraitScaleY": 1,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Fill",
+					"p": {
+						"name": "backgroundFill",
+						"image": "sky.png",
+						"tint": 16777215,
+						"blendMode": 0,
+						"xShiftSpeed": 0.01
+					}
+				}
+			]
+		},
+		{
+			"c": "Bunny",
+			"p": {
+				"x": 628,
+				"y": 562,
+				"interactive": true,
+				"scale.x": 1.6,
+				"image": "bunny.png"
+			}
+		},
+		{
+			"c": "OrientationTrigger",
+			"p": {
+				"name": "pipesTrigger",
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitScaleX": 1,
+				"portraitScaleY": 1,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "PipeSpawner",
+					"p": {
+						"name": "pipes",
+						"pipePath": "pipes",
+						"pipesRange": 300
+					}
+				}
+			]
+		},
+		{
+			"c": "OrientationTrigger",
+			"p": {
+				"name": "counterLabelTrigger",
+				"onPortrait": "",
+				"onLandscape": "",
+				"landscapeX": 960,
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitX": 540,
+				"portraitScaleX": 0.7,
+				"portraitScaleY": 0.7,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Text",
+					"p": {
+						"name": "counterLabel",
+						"y": 90,
+						"pivot.x": 0.5,
+						"pivot.y": 1,
+						"tint": 0,
+						"text": "",
+						"translatableText": "example_title",
+						"style.fontSize": 51,
+						"verticalAlign": "top",
+						"style.fill": "#9fafc1"
+					}
+				}
+			]
+		},
+		{
+			"c": "OrientationTrigger",
+			"p": {
+				"name": "counterTextTrigger",
+				"pivot.x": -130,
+				"onPortrait": "",
+				"onLandscape": "",
+				"landscapeX": 960,
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitX": 540,
+				"portraitScaleX": 0.7,
+				"portraitScaleY": 0.7,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Text",
+					"p": {
+						"name": "counterText",
+						"y": 90,
+						"pivot.x": 0.5,
+						"tint": 0,
+						"text": "",
+						"translatableText": "counter",
+						"style.fontSize": 51,
+						"style.align": "left",
+						"verticalAlign": "top",
+						"style.fill": "#9fafc1"
+					}
+				}
+			]
+		},
+		{
+			"c": "OrientationTrigger",
+			"p": {
+				"name": "gameOverTextTrigger",
+				"onPortrait": "",
+				"onLandscape": "",
+				"landscapeX": 960,
+				"landscapeY": 540,
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitX": 540,
+				"portraitY": 960,
+				"portraitScaleX": 0.7,
+				"portraitScaleY": 0.7,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Text",
+					"p": {
+						"name": "GameOverText",
+						"alpha": 0,
+						"pivot.x": 0.5,
+						"pivot.y": 0.5,
+						"tint": 0,
+						"text": "",
+						"translatableText": "gameOver",
+						"style.fontSize": 150,
+						"style.fill": "#9fafc1"
+					}
+				}
+			]
+		}
+	]
+}
