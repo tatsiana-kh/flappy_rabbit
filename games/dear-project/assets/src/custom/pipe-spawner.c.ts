@@ -26,16 +26,8 @@ export default class PipeSpawner extends Container {
     public speedX: number = GAME_CONFIG.PIPE.SPEED_X;
 
     @editable()
-    isDynamicPosition: boolean = true;
-
-    @editable()
     private pipesRange: number = GAME_CONFIG.PIPE.PIPE_RANGE;
 
-    @editable()
-    private MIN: number = GAME_CONFIG.PIPE.MIN_Y;
-
-    @editable()
-    private MAX: number = GAME_CONFIG.PIPE.MAX_Y;
 
     private pool: PipesContainer[] = [];
 
@@ -43,19 +35,20 @@ export default class PipeSpawner extends Container {
     private bunny: Bunny | null = null;
     private gameScene: BunnyGameSceneLogic | null = null;
     private pipeId: number = 0;
+	private centerY: number = 0;
 
-    init() {
+	init() {
     	super.init();
     	this.startTime = game.time;
     	this.bunny = this.getRootContainer().findChildrenByType(Bunny)[0] as Bunny;
     	this.gameScene = this.getRootContainer() as BunnyGameSceneLogic;
-    }
+	}
 
-    public registerInPool(pipe : PipesContainer) {
+	public registerInPool(pipe : PipesContainer) {
     	this.pool.push(pipe);
-    }
+	}
 
-    public spawn() {
+	public spawn() {
     	let pipe: PipesContainer;
 
     	if (this.pool.length > 0) {
@@ -67,12 +60,7 @@ export default class PipeSpawner extends Container {
     		return;
     	}
 
-    	if (this.isDynamicPosition) {
-    		pipe.y = Math.floor(Math.random() * this.pipesRange) + (game.H / 2 - this.pipesRange / 2);
-    	} else {
-    		pipe.y = Math.floor(Math.random() * (this.MAX - this.MIN + 1)) + this.MIN;
-    	}
-
+		pipe.y = Math.floor(Math.random() * this.pipesRange) + (game.H / 2 - this.pipesRange / 2);
     	pipe.parent = this;
     	pipe.visible = true;
     	pipe.speedX = this.speedX;
@@ -87,21 +75,39 @@ export default class PipeSpawner extends Container {
     	if (!this.children.includes(pipe)) {
     		this.addChild(pipe);
     	}
-    }
+	}
 
-    update() {
+
+	public recalculateAllPipesPositions() {
+		const newCenterY = game.H / 2;
+		if (this.centerY !== newCenterY) {
+			const offsetY = newCenterY - this.centerY;
+
+			for (const child of this.children) {
+				if (child instanceof Container && (child as any).pipeId !== undefined) {
+					const pipe = child as PipesContainer;
+					if (pipe.visible && pipe.parent === this) {
+						pipe.y += offsetY ;
+					}
+				}
+			}
+			this.centerY = newCenterY;
+		}
+	}
+
+	update() {
     	const dtTime = game.time - this.startTime;
     	if (dtTime == this.spawnTime) {
     		this.startTime = game.time;
     		this.spawn();
     	}
     	super.update();
-    }
+	}
 
-    onRemove() {
+	onRemove() {
     	this.bunny = null;
     	this.gameScene = null;
     	this.pool = [];
     	super.onRemove();
-    }
+	}
 }

@@ -48,6 +48,7 @@ games/dear-project/assets/l18n/en.l.json
 games/dear-project/assets/l18n/ru.l.json
 games/dear-project/assets/main.s.json
 games/dear-project/assets/newscene.s.json
+games/dear-project/assets/orientscene.s.json
 games/dear-project/assets/pipe.p.json
 games/dear-project/assets/pipes.p.json
 games/dear-project/assets/sky.png
@@ -13705,26 +13706,38 @@ export default sureQuestionInit;
 }
 </file>
 
-<file path="games/dear-project/assets/newscene.s.json">
+<file path="games/dear-project/assets/orientscene.s.json">
 {
 	"c": "BunnyGameSceneLogic",
 	"p": {
-		"name": "newscene"
+		"name": "orientscene"
 	},
 	":": [
 		{
-			"c": "DynamicFill",
+			"c": "OrientationTrigger",
 			"p": {
-				"scale.x": 2.088,
-				"scale.y": 1.055,
-				"image": "sky.png",
-				"tint": 16777215,
-				"blendMode": 0,
-				"xRepeat": 2.088,
-				"yRepeat": 1.055,
-				"xShiftSpeed": 0.01,
-				"isDynamic": true
-			}
+				"name": "backgroundTrigger",
+				"onPortrait": "this.parent.setAdaptiveBackgroundProps,backgroundFill,1.055,1.875,1.055,1.875",
+				"onLandscape": "this.parent.setAdaptiveBackgroundProps,backgroundFill,1.875,1.055,1.875,1.055",
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitScaleX": 1,
+				"portraitScaleY": 1,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Fill",
+					"p": {
+						"name": "backgroundFill",
+						"image": "sky.png",
+						"tint": 16777215,
+						"blendMode": 0,
+						"xShiftSpeed": 0.01
+					}
+				}
+			]
 		},
 		{
 			"c": "Bunny",
@@ -13737,112 +13750,129 @@ export default sureQuestionInit;
 			}
 		},
 		{
-			"c": "PipeSpawner",
+			"c": "OrientationTrigger",
 			"p": {
-				"name": "pipes",
-				"pipePath": "pipes",
-				"pipesRange": 300
-			}
+				"name": "pipesTrigger",
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitScaleX": 1,
+				"portraitScaleY": 1,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "PipeSpawner",
+					"p": {
+						"name": "pipes",
+						"pipePath": "pipes",
+						"pipesRange": 300
+					}
+				}
+			]
 		},
 		{
-			"c": "DynamicText",
+			"c": "OrientationTrigger",
 			"p": {
-				"name": "counterLabel",
-				"x": 874,
-				"y": 90,
-				"tint": 0,
-				"text": "",
-				"translatableText": "example_title",
-				"style.fontSize": 51,
-				"style.align": "left",
-				"verticalAlign": "top",
-				"style.fill": "#9fafc1",
-				"isDynamicYPosition": false
-			}
+				"name": "counterLabelTrigger",
+				"onPortrait": "",
+				"onLandscape": "",
+				"landscapeX": 960,
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitX": 540,
+				"portraitScaleX": 0.7,
+				"portraitScaleY": 0.7,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Text",
+					"p": {
+						"name": "counterLabel",
+						"y": 90,
+						"pivot.x": 0.5,
+						"pivot.y": 1,
+						"tint": 0,
+						"text": "",
+						"translatableText": "example_title",
+						"style.fontSize": 51,
+						"verticalAlign": "top",
+						"style.fill": "#9fafc1"
+					}
+				}
+			]
 		},
 		{
-			"c": "DynamicText",
+			"c": "OrientationTrigger",
 			"p": {
-				"name": "counterText",
-				"x": 1080,
-				"y": 90,
-				"pivot.x": -120,
-				"tint": 0,
-				"text": "",
-				"translatableText": "counter",
-				"style.fontSize": 51,
-				"style.align": "left",
-				"verticalAlign": "top",
-				"style.fill": "#9fafc1",
-				"isDynamicYPosition": false
-			}
+				"name": "counterTextTrigger",
+				"pivot.x": -130,
+				"onPortrait": "",
+				"onLandscape": "",
+				"landscapeX": 960,
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitX": 540,
+				"portraitScaleX": 0.7,
+				"portraitScaleY": 0.7,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Text",
+					"p": {
+						"name": "counterText",
+						"y": 90,
+						"pivot.x": 0.5,
+						"tint": 0,
+						"text": "",
+						"translatableText": "counter",
+						"style.fontSize": 51,
+						"style.align": "left",
+						"verticalAlign": "top",
+						"style.fill": "#9fafc1"
+					}
+				}
+			]
 		},
 		{
-			"c": "DynamicText",
+			"c": "OrientationTrigger",
 			"p": {
-				"name": "GameOverText",
-				"x": 1014,
-				"y": 450,
-				"alpha": 0,
-				"tint": 0,
-				"text": "",
-				"translatableText": "gameOver",
-				"style.fontSize": 150,
-				"style.align": "left",
-				"style.fill": "#9fafc1"
-			}
+				"name": "gameOverTextTrigger",
+				"onPortrait": "",
+				"onLandscape": "",
+				"landscapeX": 960,
+				"landscapeY": 540,
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitX": 540,
+				"portraitY": 960,
+				"portraitScaleX": 0.7,
+				"portraitScaleY": 0.7,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Text",
+					"p": {
+						"name": "GameOverText",
+						"alpha": 0,
+						"pivot.x": 0.5,
+						"pivot.y": 0.5,
+						"tint": 0,
+						"text": "",
+						"translatableText": "gameOver",
+						"style.fontSize": 150,
+						"style.fill": "#9fafc1"
+					}
+				}
+			]
 		}
 	]
-}
-</file>
-
-<file path="games/dear-project/assets/src/custom/bunny-game-scene-logic.c.ts">
-import Scene from 'thing-editor/src/engine/lib/assets/src/basic/scene.c';
-import { GAME_CONFIG } from './game-config';
-
-export default class BunnyGameSceneLogic extends Scene {
-
-	public score: number = 0;
-	private scoreText: any = null;
-	private gameOverText: any = null;
-
-	init() {
-		super.init();
-		this.score = GAME_CONFIG.SCENE.INITIAL_SCORE;
-		this.scoreText = this.findChildByName('counterText');
-		this.gameOverText = this.findChildByName('GameOverText');
-		this.updateScoreDisplay();
-	}
-
-	public increaseScore() {
-		this.score++;
-		this.updateScoreDisplay();
-	}
-
-	private updateScoreDisplay() {
-		if (this.scoreText) {
-			this.scoreText.text = `${this.score}`;
-		}
-	}
-
-	update() {
-		if (this.gameOverText.alpha == GAME_CONFIG.SCENE.GAME_OVER_ALPHA) {
-			return;
-		} else {
-			super.update();
-		}
-	}
-
-	gameOver() {
-		if (this.gameOverText) {
-			this.gameOverText.alpha = GAME_CONFIG.SCENE.GAME_OVER_ALPHA;
-		}
-		this.onRemove();
-	}
-
-	onRemove() {
-		super.onRemove();
-	}
 }
 </file>
 
@@ -26159,6 +26189,122 @@ export default defineConfig({
 }
 </file>
 
+<file path="games/dear-project/assets/newscene.s.json">
+{
+	"c": "BunnyGameSceneLogic",
+	"p": {
+		"name": "newscene"
+	},
+	":": [
+		{
+			"c": "Container",
+			"p": {
+				"scale.x": 0.8735213830755232,
+				"scale.y": 0.9997038411720884
+			},
+			":": [
+				{
+					"c": "OrientationParentResizer",
+					"p": {
+						"pivot.x": 960,
+						"pivot.y": 540,
+						"landscapeX": 1920,
+						"landscapeY": 1080,
+						"landscapeScaleX": 1,
+						"landscapeScaleY": 1,
+						"landscapeAlpha": 1,
+						"portraitX": 1080,
+						"portraitY": 1920,
+						"portraitScaleX": 1,
+						"portraitScaleY": 1,
+						"portraitAlpha": 1
+					},
+					":": [
+						{
+							"c": "Fill",
+							"p": {
+								"scale.x": 2.088,
+								"scale.y": 1.055,
+								"image": "sky.png",
+								"tint": 16777215,
+								"blendMode": 0,
+								"xRepeat": 10,
+								"yRepeat": 10,
+								"xShiftSpeed": 0.01
+							}
+						},
+						{
+							"c": "Bunny",
+							"p": {
+								"x": 628,
+								"y": 562,
+								"interactive": true,
+								"scale.x": 1.6,
+								"image": "bunny.png"
+							}
+						},
+						{
+							"c": "PipeSpawner",
+							"p": {
+								"name": "pipes",
+								"pipePath": "pipes",
+								"pipesRange": 300
+							}
+						},
+						{
+							"c": "Text",
+							"p": {
+								"name": "counterLabel",
+								"x": 874,
+								"y": 90,
+								"tint": 0,
+								"text": "",
+								"translatableText": "example_title",
+								"style.fontSize": 51,
+								"style.align": "left",
+								"verticalAlign": "top",
+								"style.fill": "#9fafc1"
+							}
+						},
+						{
+							"c": "Text",
+							"p": {
+								"name": "counterText",
+								"x": 1080,
+								"y": 90,
+								"pivot.x": -120,
+								"tint": 0,
+								"text": "",
+								"translatableText": "counter",
+								"style.fontSize": 51,
+								"style.align": "left",
+								"verticalAlign": "top",
+								"style.fill": "#9fafc1"
+							}
+						},
+						{
+							"c": "Text",
+							"p": {
+								"name": "GameOverText",
+								"x": 1014,
+								"y": 450,
+								"alpha": 0,
+								"tint": 0,
+								"text": "",
+								"translatableText": "gameOver",
+								"style.fontSize": 150,
+								"style.align": "left",
+								"style.fill": "#9fafc1"
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
+</file>
+
 <file path="games/dear-project/assets/pipe.p.json">
 {
 	"c": "Container",
@@ -26227,6 +26373,68 @@ export default defineConfig({
 			}
 		}
 	]
+}
+</file>
+
+<file path="games/dear-project/assets/src/custom/bunny-game-scene-logic.c.ts">
+import Scene from 'thing-editor/src/engine/lib/assets/src/basic/scene.c';
+import { GAME_CONFIG } from './game-config';
+import type Fill from 'thing-editor/src/engine/lib/assets/src/basic/fill.c';
+
+export default class BunnyGameSceneLogic extends Scene {
+
+	public score: number = 0;
+	private scoreText: any = null;
+	private gameOverText: any = null;
+
+	init() {
+		super.init();
+		this.score = GAME_CONFIG.SCENE.INITIAL_SCORE;
+		this.scoreText = this.findChildByName('counterText');
+		this.gameOverText = this.findChildByName('GameOverText');
+		this.updateScoreDisplay();
+	}
+
+	public setAdaptiveBackgroundProps(name:string, scaleW: number, scaleH: number, repeatX: number, repeatY: number) {
+		const backgroundFill = this.findChildByName(name) as Fill;
+
+		if (backgroundFill) {
+			backgroundFill.scale.x = scaleW;
+			backgroundFill.scale.y = scaleH;
+			backgroundFill.xRepeat = repeatX;
+			backgroundFill.yRepeat = repeatY;
+		}
+	}
+
+	public increaseScore() {
+		this.score++;
+		this.updateScoreDisplay();
+	}
+
+	private updateScoreDisplay() {
+		if (this.scoreText) {
+			this.scoreText.text = `${this.score}`;
+		}
+	}
+
+	update() {
+		if (this.gameOverText.alpha == GAME_CONFIG.SCENE.GAME_OVER_ALPHA) {
+			return;
+		} else {
+			super.update();
+		}
+	}
+
+	gameOver() {
+		if (this.gameOverText) {
+			this.gameOverText.alpha = GAME_CONFIG.SCENE.GAME_OVER_ALPHA;
+		}
+		this.onRemove();
+	}
+
+	onRemove() {
+		super.onRemove();
+	}
 }
 </file>
 
@@ -30258,6 +30466,484 @@ export default class ___GizmoArrow extends Shape {
 }
 </file>
 
+<file path="thing-editor/src/engine/lib/assets/src/basic/button.c.ts">
+import type { FederatedPointerEvent, Renderer } from 'pixi.js';
+import editable from 'thing-editor/src/editor/props-editor/editable';
+import assert from 'thing-editor/src/engine/debug/assert';
+import game from 'thing-editor/src/engine/game';
+import Lib from 'thing-editor/src/engine/lib';
+import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
+import callByPath from 'thing-editor/src/engine/utils/call-by-path';
+import { mouseHandlerGlobal } from 'thing-editor/src/engine/utils/game-interaction';
+import getValueByPath from 'thing-editor/src/engine/utils/get-value-by-path';
+import Sound from 'thing-editor/src/engine/utils/sound';
+
+/// #if EDITOR
+import R from 'thing-editor/src/editor/preact-fabrics';
+import EDITOR_FLAGS from 'thing-editor/src/editor/utils/flags';
+import isEventFocusOnInputElement from 'thing-editor/src/editor/utils/is-event-focus-on-input-element';
+/// #endif
+
+let latestClickTime = 0;
+const SCROLL_THRESHOLD = 30;
+
+export default class Button extends DSprite {
+
+	onClickCallback?: () => void;
+
+	@editable({ name: 'interactive', default: true, override: true, disabled: () => 'Please use "enabled" property instead.' })
+
+	@editable({ type: 'image' })
+	hoverImage = null;
+	@editable({ type: 'image' })
+	pressImage = null;
+	@editable({ type: 'image' })
+	disabledImage = null;
+
+	@editable({ visible: (o) => { return !o.disabledImage; }, min: 0, max: 1, step: 0.01, default: 0.76 })
+	disabledAlpha = 0;
+
+	@editable({ important: true })
+	enabled = true;
+
+	@editable({ type: 'callback', important: true })
+	onClick: string[] = [];
+
+	@editable()
+	hotkey = 0;
+
+	@editable({ type: 'sound' })
+	sndClick: string | null = null;
+
+	@editable({ type: 'sound' })
+	sndOver: string | null = null;
+
+	get scrollable() {
+		if (game.classes.ScrollLayer) {
+			const parentScrollLayer = this.findParentByType(game.classes.ScrollLayer);
+			return parentScrollLayer &&
+				((parentScrollLayer.fullArea.w > parentScrollLayer.visibleArea.w) ||
+					(parentScrollLayer.fullArea.h > parentScrollLayer.visibleArea.h)
+				);
+		}
+		return false;
+	}
+
+	initialScale!: number;
+	initialImage!: string | null;
+
+	curDelay = 0;
+
+	@editable({ min: 0 })
+	repeatDelay = 0;
+
+	@editable({ min: 0 })
+	repeatInterval = 0;
+
+	pointerStartPos?: { x: number; y: number };
+
+	init() {
+
+		assert(!this.onClickCallback, 'Button onClickCallback was not clean properly.');
+		super.init();
+
+		this.on('pointerdown', this.onDown);
+		this.on('pointerup', this.onUp);
+		this.on('pointerover', this.onOver);
+		this.on('pointerout', this.onOut);
+
+		assert(!game.__EDITOR_mode, '\'init()\' called in edition mode');
+		assert(allActiveButtons.indexOf(this) < 0, 'Button already in active list.');
+		allActiveButtons.unshift(this);
+
+		this.initialScale = this.scale.x;
+		this.initialImage = this.image;
+		if (this.enabled) {
+			this.enable();
+		} else {
+			this.disable();
+		}
+
+		this.pointerStartPos = undefined;
+	}
+
+	onRemove() {
+		super.onRemove();
+		this.onOut();
+
+		this.removeListener('pointerdown', this.onDown);
+		this.removeListener('pointerup', this.onUp);
+		this.removeListener('pointerover', this.onOver);
+		this.removeListener('pointerout', this.onOut);
+
+		let i = allActiveButtons.indexOf(this);
+		/// #if DEBUG
+		assert((!this._thing_initialized) || (i >= 0), 'Button is not in active list.');
+		this._thing_initialized = false;
+		/// #endif
+
+		if (i >= 0) { // could be removed before initialization in parent init method
+			allActiveButtons.splice(i, 1);
+		}
+
+		if (downedByKeycodeButton === this) {
+			downedByKeycodeButton = undefined;
+		}
+		this.initialImage = null;
+		this.enabled = false;
+
+		if (this.hasOwnProperty('onClickCallback')) {
+			delete (this.onClickCallback);
+		}
+	}
+
+	/// #if EDITOR
+	render(renderer: Renderer): void {
+		super.render(renderer);
+		if (this.isCanBePressed && this.worldAlpha > 0.1) {
+			if (this.hoverImage && Lib.hasTexture(this.hoverImage)) {
+				Lib.getTexture(this.hoverImage).baseTexture.touched = EDITOR_FLAGS.__touchTime;
+			}
+			if (this.pressImage && Lib.hasTexture(this.pressImage)) {
+				Lib.getTexture(this.pressImage).baseTexture.touched = EDITOR_FLAGS.__touchTime;
+			}
+			if (this.disabledImage && Lib.hasTexture(this.disabledImage)) {
+				Lib.getTexture(this.disabledImage).baseTexture.touched = EDITOR_FLAGS.__touchTime;
+			}
+			if (this.sndOver && Lib.hasSound(this.sndOver)) {
+				Lib.getSound(this.sndOver).__lastTouch = EDITOR_FLAGS.__touchTime;
+			}
+			if (this.sndClick && Lib.hasSound(this.sndClick)) {
+				Lib.getSound(this.sndClick).__lastTouch = EDITOR_FLAGS.__touchTime;
+			}
+		}
+	}
+	/// #endif
+
+	disable() {
+		if (this.initialImage) {
+			this.onUp();
+			this.onOut();
+			if (this.disabledImage) {
+				this.image = this.disabledImage;
+			} else {
+				this.alpha = this.disabledAlpha;
+			}
+		}
+		this.enabled = false;
+		this.cursor = 'default';
+	}
+
+	enable() {
+		if (this.initialImage) {
+			if (this.disabledImage) {
+				this.image = this.initialImage;
+			} else {
+				this.alpha = 1;
+			}
+		}
+		this.enabled = true;
+		this.cursor = 'pointer';
+	}
+
+	static clickedButton: Button | null = null;
+	static overedButton: Button | null = null;
+	static downedButton: Button | null = null;
+
+	get isOvered() {
+		return this === Button.overedButton;
+	}
+
+	get isDowned() {
+		return this === Button.downedButton;
+	}
+
+	click() {
+		if (this.isCanBePressed) {
+			this._executeOnClick('invoke');
+		}
+	}
+
+	//@ts-ignore
+	get isCanBePressed() {
+		if (!this.enabled) return false;
+		//@ts-ignore
+		return super.isCanBePressed;
+	}
+
+	_executeOnClick(source/** optional tracking tag */?: string) {
+		/// #if EDITOR
+		if (game.__EDITOR_mode) {
+			return;
+		}
+		/// #endif
+		assert(this.isCanBePressed, '_executeOnClick called for button which could not be pressed at the moment.');
+
+		game.emit('button-click', this, source);
+
+		Button.clickedButton = this;
+		if (this.onClickCallback) {
+			this.onClickCallback();
+		}
+
+		for (const action of this.onClick) {
+			callByPath(action, this);
+		}
+
+		if (source === 'hotkey') {
+			if (game.classes.ClickOutsideTrigger) {
+				game.classes.ClickOutsideTrigger.shootAll(this);
+			}
+		}
+
+		Button.clickedButton = null;
+
+		if (this.sndClick) {
+			Sound.play(this.sndClick);
+		}
+
+		latestClickTime = game.time;
+	}
+
+	_isNotPausable() {
+		if (game.classes.UnPausableContainer) {
+			return this.findParentByType(game.classes.UnPausableContainer);
+		}
+	}
+
+	onDown(ev: PointerEvent | null | FederatedPointerEvent, source = 'pointerdown') {
+
+		Sound._unlockSound();
+		if (game.time === latestClickTime || game.__paused
+		) {
+			if (!this._isNotPausable()) {
+				return;
+			}
+		}
+		if (ev) {
+			if (ev.buttons !== 1) {
+				return;
+			}
+			mouseHandlerGlobal(ev);
+		}
+		if (this.isCanBePressed && ((Math.abs(latestClickTime - game.time) > 1) || this._isNotPausable())) {
+			if (Button.downedButton !== this) {
+				if (Button.downedButton) {
+					Button.downedButton.onUp();
+				}
+				if (this.pressImage) {
+					this.image = this.pressImage;
+				} else {
+					this.scale.x =
+						this.scale.y = this.initialScale * (this.isOvered ? 1 : 0.9);
+				}
+				Button.downedButton = this;
+				this.curDelay = this.repeatDelay;
+
+				if (this.scrollable) {
+					this.pointerStartPos = { x: game.mouse.x, y: game.mouse.y };
+				} else {
+					this._executeOnClick(source);
+				}
+			}
+		}
+	}
+
+	update() {
+
+		/// #if EDITOR
+		if (this.isCanBePressed) {
+			this.onClick.forEach((action, i) => {
+				let f;
+				try {
+					f = getValueByPath(action, this, true);
+				} catch (_er) { }
+				if (typeof f !== 'function') {
+					game.editor.ui.status.error('Wrong onClick handler: ' + action, 32054, this, 'onClick', i);
+					getValueByPath(action, this, true);
+				}
+			});
+		}
+		/// #endif
+
+		if (this.isDowned) {
+			if ((!game.mouse.click && (downedByKeycodeButton !== this)) || !game.isFocused) {
+				this.onUp();
+			} else if (this.curDelay > 0) {
+				this.curDelay--;
+				if (this.curDelay === 0) {
+					if (this.isCanBePressed && (Math.abs(latestClickTime - game.time) > 1)) {
+						this._executeOnClick('autorepeat');
+					}
+					this.curDelay = this.repeatInterval;
+				}
+			}
+		}
+		super.update();
+	}
+
+	onUp(ev?: PointerEvent | KeyboardEvent | FederatedPointerEvent, src = 'pointerup') {
+		if (Button.downedButton === this) {
+			if (this.pressImage) {
+				if (this.initialImage) {
+					this.image = this.initialImage;
+				}
+			} else {
+				this.scale.x =
+					this.scale.y = this.initialScale * ((this.isOvered && !this.hoverImage) ? 1.05 : 1);
+			}
+			if (ev && this.scrollable && Math.hypot(game.mouse.x - this.pointerStartPos!.x, game.mouse.y - this.pointerStartPos!.y) <= SCROLL_THRESHOLD) {
+				this._executeOnClick(src);
+			}
+			Button.downedButton = null;
+		}
+	}
+
+	onOver() {
+		/// #if EDITOR
+		/*
+		/// #endif
+		if (game.isMobile.any) {
+			return;
+		}
+		//*/
+		if (this.enabled) {
+			if (Button.overedButton !== this) {
+				if (Button.overedButton) {
+					Button.overedButton.onOut();
+				}
+				Button.overedButton = this;
+
+				if (this.hoverImage) {
+					this.image = this.hoverImage;
+				} else {
+					this.scale.x =
+					this.scale.y = this.initialScale * 1.05;
+				}
+
+				if (this.sndOver) {
+					Sound.play(this.sndOver);
+				}
+				this.gotoLabelRecursive('btn-over');
+
+			}
+		}
+	}
+
+	_onDisableByTrigger() {
+		this.onOut();
+	}
+
+	onOut() {
+		/// #if EDITOR
+		/*
+		/// #endif
+		if (game.isMobile.any) {
+			return;
+		}
+		//*/
+		if (Button.overedButton === this) {
+			Button.overedButton = null;
+
+			if (this.hoverImage) {
+				if (this.initialImage) {
+					this.image = this.initialImage;
+				}
+			} else {
+				this.scale.x =
+				this.scale.y = this.initialScale;
+			}
+
+			this.onUp();
+			this.gotoLabelRecursive('btn-out');
+		}
+	}
+
+	static _tryToClickByKeycode(keyCode: number): Button | undefined {
+		for (let b of allActiveButtons) {
+			if ((b.hotkey === keyCode) && b.isCanBePressed) {
+				b.onDown(null, 'hotkey');
+				return b;
+			}
+		}
+	}
+
+	/// #if EDITOR
+
+	__beforeSerialization(): void {
+		this.interactive = true;
+	}
+
+	__afterDeserialization(): void {
+		this.interactive = true;
+	}
+
+	__EDITOR_onCreate() {
+		if (Lib.hasTexture('ui/button.png')) {
+			this.image = 'ui/button.png';
+		}
+		if (Lib.hasSound('click')) {
+			this.sndClick = 'click';
+		}
+		if (Lib.hasSound('over')) {
+			this.sndOver = 'over';
+		}
+	}
+
+
+	/// #endif
+
+}
+
+let downedByKeycodeButton: Button | undefined;
+
+let allActiveButtons: Button[] = [];
+
+window.addEventListener('keydown', (ev) => {
+	if (ev.repeat) {
+		return;
+	}
+	/// #if EDITOR
+	if (game.__EDITOR_mode) {
+		return;
+	}
+	if (isEventFocusOnInputElement(ev)) {
+		return;
+	}
+	/// #endif
+
+	downedByKeycodeButton = Button._tryToClickByKeycode(ev.keyCode);
+	if (downedByKeycodeButton) {
+		ev.preventDefault();
+		ev.stopPropagation();
+	}
+});
+
+window.addEventListener('keyup', (ev) => {
+	if (downedByKeycodeButton && downedByKeycodeButton.hotkey === ev.keyCode) {
+		downedByKeycodeButton.onUp(ev, 'hotkey');
+		downedByKeycodeButton = undefined;
+	}
+});
+
+
+/// #if EDITOR
+
+Button.__EDITOR_icon = 'tree/button';
+
+setTimeout(() => {
+	const ACTION_ICON_ENABLE = R.img({ src: '/thing-editor/img/timeline/enable.png' });
+	const ACTION_ICON_DISABLE = R.img({ src: '/thing-editor/img/timeline/disable.png' });
+	(Button.prototype.enable as SelectableProperty).___EDITOR_actionIcon = ACTION_ICON_ENABLE;
+	(Button.prototype.disable as SelectableProperty).___EDITOR_actionIcon = ACTION_ICON_DISABLE;
+});
+(Button.prototype.enable as SelectableProperty).___EDITOR_isGoodForCallbackChooser = true;
+(Button.prototype.disable as SelectableProperty).___EDITOR_isGoodForCallbackChooser = true;
+(Button.prototype.click as SelectableProperty).___EDITOR_isGoodForCallbackChooser = true;
+
+/// #endif
+</file>
+
 <file path="thing-editor/src/engine/lib/assets/src/basic/click-outside-trigger.c.ts">
 import type { FederatedPointerEvent } from 'pixi.js';
 import { Container } from 'pixi.js';
@@ -33295,28 +33981,6 @@ export const GAME_CONFIG = {
 } as const;
 </file>
 
-<file path="games/dear-project/thing-project.json">
-{
-	"defaultFont": "Roboto, Arial",
-	"version": "0.0.9",
-	"loadOnDemandTextures": {
-		"sky.png": 8
-	},
-	"__group": "thing-editor-demos",
-	"__loadOnDemandTexturesFolders": {
-		"ondemand": 2
-	},
-	"id": "flappy-dear.pixel-cave.com",
-	"title": "Flappy dear",
-	"icon": "assets/bunny.png",
-	"libs": [
-		"example-lib"
-	],
-	"autoFullscreenDesktop": true,
-	"autoFullscreenMobile": false
-}
-</file>
-
 <file path="thing-editor/electron-main/build-config.js">
 const ifDefPlugin = require('./vite-plugin-ifdef/if-def-loader.js');
 const path = require('path');
@@ -35160,484 +35824,6 @@ export default class Delay extends Container {
 
 /// #if EDITOR
 Delay.__EDITOR_icon = 'tree/timer';
-/// #endif
-</file>
-
-<file path="thing-editor/src/engine/lib/assets/src/basic/button.c.ts">
-import type { FederatedPointerEvent, Renderer } from 'pixi.js';
-import editable from 'thing-editor/src/editor/props-editor/editable';
-import assert from 'thing-editor/src/engine/debug/assert';
-import game from 'thing-editor/src/engine/game';
-import Lib from 'thing-editor/src/engine/lib';
-import DSprite from 'thing-editor/src/engine/lib/assets/src/basic/d-sprite.c';
-import callByPath from 'thing-editor/src/engine/utils/call-by-path';
-import { mouseHandlerGlobal } from 'thing-editor/src/engine/utils/game-interaction';
-import getValueByPath from 'thing-editor/src/engine/utils/get-value-by-path';
-import Sound from 'thing-editor/src/engine/utils/sound';
-
-/// #if EDITOR
-import R from 'thing-editor/src/editor/preact-fabrics';
-import EDITOR_FLAGS from 'thing-editor/src/editor/utils/flags';
-import isEventFocusOnInputElement from 'thing-editor/src/editor/utils/is-event-focus-on-input-element';
-/// #endif
-
-let latestClickTime = 0;
-const SCROLL_THRESHOLD = 30;
-
-export default class Button extends DSprite {
-
-	onClickCallback?: () => void;
-
-	@editable({ name: 'interactive', default: true, override: true, disabled: () => 'Please use "enabled" property instead.' })
-
-	@editable({ type: 'image' })
-	hoverImage = null;
-	@editable({ type: 'image' })
-	pressImage = null;
-	@editable({ type: 'image' })
-	disabledImage = null;
-
-	@editable({ visible: (o) => { return !o.disabledImage; }, min: 0, max: 1, step: 0.01, default: 0.76 })
-	disabledAlpha = 0;
-
-	@editable({ important: true })
-	enabled = true;
-
-	@editable({ type: 'callback', important: true })
-	onClick: string[] = [];
-
-	@editable()
-	hotkey = 0;
-
-	@editable({ type: 'sound' })
-	sndClick: string | null = null;
-
-	@editable({ type: 'sound' })
-	sndOver: string | null = null;
-
-	get scrollable() {
-		if (game.classes.ScrollLayer) {
-			const parentScrollLayer = this.findParentByType(game.classes.ScrollLayer);
-			return parentScrollLayer &&
-				((parentScrollLayer.fullArea.w > parentScrollLayer.visibleArea.w) ||
-					(parentScrollLayer.fullArea.h > parentScrollLayer.visibleArea.h)
-				);
-		}
-		return false;
-	}
-
-	initialScale!: number;
-	initialImage!: string | null;
-
-	curDelay = 0;
-
-	@editable({ min: 0 })
-	repeatDelay = 0;
-
-	@editable({ min: 0 })
-	repeatInterval = 0;
-
-	pointerStartPos?: { x: number; y: number };
-
-	init() {
-
-		assert(!this.onClickCallback, 'Button onClickCallback was not clean properly.');
-		super.init();
-
-		this.on('pointerdown', this.onDown);
-		this.on('pointerup', this.onUp);
-		this.on('pointerover', this.onOver);
-		this.on('pointerout', this.onOut);
-
-		assert(!game.__EDITOR_mode, '\'init()\' called in edition mode');
-		assert(allActiveButtons.indexOf(this) < 0, 'Button already in active list.');
-		allActiveButtons.unshift(this);
-
-		this.initialScale = this.scale.x;
-		this.initialImage = this.image;
-		if (this.enabled) {
-			this.enable();
-		} else {
-			this.disable();
-		}
-
-		this.pointerStartPos = undefined;
-	}
-
-	onRemove() {
-		super.onRemove();
-		this.onOut();
-
-		this.removeListener('pointerdown', this.onDown);
-		this.removeListener('pointerup', this.onUp);
-		this.removeListener('pointerover', this.onOver);
-		this.removeListener('pointerout', this.onOut);
-
-		let i = allActiveButtons.indexOf(this);
-		/// #if DEBUG
-		assert((!this._thing_initialized) || (i >= 0), 'Button is not in active list.');
-		this._thing_initialized = false;
-		/// #endif
-
-		if (i >= 0) { // could be removed before initialization in parent init method
-			allActiveButtons.splice(i, 1);
-		}
-
-		if (downedByKeycodeButton === this) {
-			downedByKeycodeButton = undefined;
-		}
-		this.initialImage = null;
-		this.enabled = false;
-
-		if (this.hasOwnProperty('onClickCallback')) {
-			delete (this.onClickCallback);
-		}
-	}
-
-	/// #if EDITOR
-	render(renderer: Renderer): void {
-		super.render(renderer);
-		if (this.isCanBePressed && this.worldAlpha > 0.1) {
-			if (this.hoverImage && Lib.hasTexture(this.hoverImage)) {
-				Lib.getTexture(this.hoverImage).baseTexture.touched = EDITOR_FLAGS.__touchTime;
-			}
-			if (this.pressImage && Lib.hasTexture(this.pressImage)) {
-				Lib.getTexture(this.pressImage).baseTexture.touched = EDITOR_FLAGS.__touchTime;
-			}
-			if (this.disabledImage && Lib.hasTexture(this.disabledImage)) {
-				Lib.getTexture(this.disabledImage).baseTexture.touched = EDITOR_FLAGS.__touchTime;
-			}
-			if (this.sndOver && Lib.hasSound(this.sndOver)) {
-				Lib.getSound(this.sndOver).__lastTouch = EDITOR_FLAGS.__touchTime;
-			}
-			if (this.sndClick && Lib.hasSound(this.sndClick)) {
-				Lib.getSound(this.sndClick).__lastTouch = EDITOR_FLAGS.__touchTime;
-			}
-		}
-	}
-	/// #endif
-
-	disable() {
-		if (this.initialImage) {
-			this.onUp();
-			this.onOut();
-			if (this.disabledImage) {
-				this.image = this.disabledImage;
-			} else {
-				this.alpha = this.disabledAlpha;
-			}
-		}
-		this.enabled = false;
-		this.cursor = 'default';
-	}
-
-	enable() {
-		if (this.initialImage) {
-			if (this.disabledImage) {
-				this.image = this.initialImage;
-			} else {
-				this.alpha = 1;
-			}
-		}
-		this.enabled = true;
-		this.cursor = 'pointer';
-	}
-
-	static clickedButton: Button | null = null;
-	static overedButton: Button | null = null;
-	static downedButton: Button | null = null;
-
-	get isOvered() {
-		return this === Button.overedButton;
-	}
-
-	get isDowned() {
-		return this === Button.downedButton;
-	}
-
-	click() {
-		if (this.isCanBePressed) {
-			this._executeOnClick('invoke');
-		}
-	}
-
-	//@ts-ignore
-	get isCanBePressed() {
-		if (!this.enabled) return false;
-		//@ts-ignore
-		return super.isCanBePressed;
-	}
-
-	_executeOnClick(source/** optional tracking tag */?: string) {
-		/// #if EDITOR
-		if (game.__EDITOR_mode) {
-			return;
-		}
-		/// #endif
-		assert(this.isCanBePressed, '_executeOnClick called for button which could not be pressed at the moment.');
-
-		game.emit('button-click', this, source);
-
-		Button.clickedButton = this;
-		if (this.onClickCallback) {
-			this.onClickCallback();
-		}
-
-		for (const action of this.onClick) {
-			callByPath(action, this);
-		}
-
-		if (source === 'hotkey') {
-			if (game.classes.ClickOutsideTrigger) {
-				game.classes.ClickOutsideTrigger.shootAll(this);
-			}
-		}
-
-		Button.clickedButton = null;
-
-		if (this.sndClick) {
-			Sound.play(this.sndClick);
-		}
-
-		latestClickTime = game.time;
-	}
-
-	_isNotPausable() {
-		if (game.classes.UnPausableContainer) {
-			return this.findParentByType(game.classes.UnPausableContainer);
-		}
-	}
-
-	onDown(ev: PointerEvent | null | FederatedPointerEvent, source = 'pointerdown') {
-
-		Sound._unlockSound();
-		if (game.time === latestClickTime || game.__paused
-		) {
-			if (!this._isNotPausable()) {
-				return;
-			}
-		}
-		if (ev) {
-			if (ev.buttons !== 1) {
-				return;
-			}
-			mouseHandlerGlobal(ev);
-		}
-		if (this.isCanBePressed && ((Math.abs(latestClickTime - game.time) > 1) || this._isNotPausable())) {
-			if (Button.downedButton !== this) {
-				if (Button.downedButton) {
-					Button.downedButton.onUp();
-				}
-				if (this.pressImage) {
-					this.image = this.pressImage;
-				} else {
-					this.scale.x =
-						this.scale.y = this.initialScale * (this.isOvered ? 1 : 0.9);
-				}
-				Button.downedButton = this;
-				this.curDelay = this.repeatDelay;
-
-				if (this.scrollable) {
-					this.pointerStartPos = { x: game.mouse.x, y: game.mouse.y };
-				} else {
-					this._executeOnClick(source);
-				}
-			}
-		}
-	}
-
-	update() {
-
-		/// #if EDITOR
-		if (this.isCanBePressed) {
-			this.onClick.forEach((action, i) => {
-				let f;
-				try {
-					f = getValueByPath(action, this, true);
-				} catch (_er) { }
-				if (typeof f !== 'function') {
-					game.editor.ui.status.error('Wrong onClick handler: ' + action, 32054, this, 'onClick', i);
-					getValueByPath(action, this, true);
-				}
-			});
-		}
-		/// #endif
-
-		if (this.isDowned) {
-			if ((!game.mouse.click && (downedByKeycodeButton !== this)) || !game.isFocused) {
-				this.onUp();
-			} else if (this.curDelay > 0) {
-				this.curDelay--;
-				if (this.curDelay === 0) {
-					if (this.isCanBePressed && (Math.abs(latestClickTime - game.time) > 1)) {
-						this._executeOnClick('autorepeat');
-					}
-					this.curDelay = this.repeatInterval;
-				}
-			}
-		}
-		super.update();
-	}
-
-	onUp(ev?: PointerEvent | KeyboardEvent | FederatedPointerEvent, src = 'pointerup') {
-		if (Button.downedButton === this) {
-			if (this.pressImage) {
-				if (this.initialImage) {
-					this.image = this.initialImage;
-				}
-			} else {
-				this.scale.x =
-					this.scale.y = this.initialScale * ((this.isOvered && !this.hoverImage) ? 1.05 : 1);
-			}
-			if (ev && this.scrollable && Math.hypot(game.mouse.x - this.pointerStartPos!.x, game.mouse.y - this.pointerStartPos!.y) <= SCROLL_THRESHOLD) {
-				this._executeOnClick(src);
-			}
-			Button.downedButton = null;
-		}
-	}
-
-	onOver() {
-		/// #if EDITOR
-		/*
-		/// #endif
-		if (game.isMobile.any) {
-			return;
-		}
-		//*/
-		if (this.enabled) {
-			if (Button.overedButton !== this) {
-				if (Button.overedButton) {
-					Button.overedButton.onOut();
-				}
-				Button.overedButton = this;
-
-				if (this.hoverImage) {
-					this.image = this.hoverImage;
-				} else {
-					this.scale.x =
-					this.scale.y = this.initialScale * 1.05;
-				}
-
-				if (this.sndOver) {
-					Sound.play(this.sndOver);
-				}
-				this.gotoLabelRecursive('btn-over');
-
-			}
-		}
-	}
-
-	_onDisableByTrigger() {
-		this.onOut();
-	}
-
-	onOut() {
-		/// #if EDITOR
-		/*
-		/// #endif
-		if (game.isMobile.any) {
-			return;
-		}
-		//*/
-		if (Button.overedButton === this) {
-			Button.overedButton = null;
-
-			if (this.hoverImage) {
-				if (this.initialImage) {
-					this.image = this.initialImage;
-				}
-			} else {
-				this.scale.x =
-				this.scale.y = this.initialScale;
-			}
-
-			this.onUp();
-			this.gotoLabelRecursive('btn-out');
-		}
-	}
-
-	static _tryToClickByKeycode(keyCode: number): Button | undefined {
-		for (let b of allActiveButtons) {
-			if ((b.hotkey === keyCode) && b.isCanBePressed) {
-				b.onDown(null, 'hotkey');
-				return b;
-			}
-		}
-	}
-
-	/// #if EDITOR
-
-	__beforeSerialization(): void {
-		this.interactive = true;
-	}
-
-	__afterDeserialization(): void {
-		this.interactive = true;
-	}
-
-	__EDITOR_onCreate() {
-		if (Lib.hasTexture('ui/button.png')) {
-			this.image = 'ui/button.png';
-		}
-		if (Lib.hasSound('click')) {
-			this.sndClick = 'click';
-		}
-		if (Lib.hasSound('over')) {
-			this.sndOver = 'over';
-		}
-	}
-
-
-	/// #endif
-
-}
-
-let downedByKeycodeButton: Button | undefined;
-
-let allActiveButtons: Button[] = [];
-
-window.addEventListener('keydown', (ev) => {
-	if (ev.repeat) {
-		return;
-	}
-	/// #if EDITOR
-	if (game.__EDITOR_mode) {
-		return;
-	}
-	if (isEventFocusOnInputElement(ev)) {
-		return;
-	}
-	/// #endif
-
-	downedByKeycodeButton = Button._tryToClickByKeycode(ev.keyCode);
-	if (downedByKeycodeButton) {
-		ev.preventDefault();
-		ev.stopPropagation();
-	}
-});
-
-window.addEventListener('keyup', (ev) => {
-	if (downedByKeycodeButton && downedByKeycodeButton.hotkey === ev.keyCode) {
-		downedByKeycodeButton.onUp(ev, 'hotkey');
-		downedByKeycodeButton = undefined;
-	}
-});
-
-
-/// #if EDITOR
-
-Button.__EDITOR_icon = 'tree/button';
-
-setTimeout(() => {
-	const ACTION_ICON_ENABLE = R.img({ src: '/thing-editor/img/timeline/enable.png' });
-	const ACTION_ICON_DISABLE = R.img({ src: '/thing-editor/img/timeline/disable.png' });
-	(Button.prototype.enable as SelectableProperty).___EDITOR_actionIcon = ACTION_ICON_ENABLE;
-	(Button.prototype.disable as SelectableProperty).___EDITOR_actionIcon = ACTION_ICON_DISABLE;
-});
-(Button.prototype.enable as SelectableProperty).___EDITOR_isGoodForCallbackChooser = true;
-(Button.prototype.disable as SelectableProperty).___EDITOR_isGoodForCallbackChooser = true;
-(Button.prototype.click as SelectableProperty).___EDITOR_isGoodForCallbackChooser = true;
-
 /// #endif
 </file>
 
@@ -38117,6 +38303,29 @@ export default class PipeSpawner extends Container {
     	this.pool = [];
     	super.onRemove();
     }
+}
+</file>
+
+<file path="games/dear-project/thing-project.json">
+{
+	"defaultFont": "Roboto, Arial",
+	"screenOrientation": "auto",
+	"version": "0.0.9",
+	"loadOnDemandTextures": {
+		"sky.png": 8
+	},
+	"__group": "thing-editor-demos",
+	"__loadOnDemandTexturesFolders": {
+		"ondemand": 2
+	},
+	"id": "flappy-dear.pixel-cave.com",
+	"title": "Flappy dear",
+	"icon": "assets/bunny.png",
+	"libs": [
+		"example-lib"
+	],
+	"autoFullscreenDesktop": true,
+	"autoFullscreenMobile": false
 }
 </file>
 

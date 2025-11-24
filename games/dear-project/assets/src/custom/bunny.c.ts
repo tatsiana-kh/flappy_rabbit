@@ -16,6 +16,7 @@ export default class Bunny extends DSprite {
 	forwardSpeed: number = GAME_CONFIG.BUNNY.FORWARD_SPEED;
 
 	private isAlive: boolean = true;
+	private centerY: number = 0;
 
 	init() {
 		super.init();
@@ -38,6 +39,16 @@ export default class Bunny extends DSprite {
 			stage.interactive = true;
 		}
 		stage.onMouseDown = this.onJump.bind(this);
+	}
+
+
+	public recalculateBunnyPosition() {
+		const newCenterY = game.H / 2;
+		if (this.centerY !== newCenterY) {
+			const offsetY = newCenterY - this.centerY;
+			this.y += offsetY;
+			this.centerY = newCenterY;
+		}
 	}
 
 	onJump() {

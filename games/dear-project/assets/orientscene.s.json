@@ -31,19 +31,38 @@
 			]
 		},
 		{
-			"c": "Bunny",
+			"c": "OrientationTrigger",
 			"p": {
-				"x": 628,
-				"y": 562,
-				"interactive": true,
-				"scale.x": 1.6,
-				"image": "bunny.png"
-			}
+				"name": "bunnyTrigger",
+				"onPortrait": "this.#bunny.recalculateBunnyPosition",
+				"onLandscape": "this.#bunny.recalculateBunnyPosition",
+				"landscapeScaleX": 1,
+				"landscapeScaleY": 1,
+				"landscapeAlpha": 1,
+				"portraitScaleX": 1,
+				"portraitScaleY": 1,
+				"portraitAlpha": 1
+			},
+			":": [
+				{
+					"c": "Bunny",
+					"p": {
+						"name": "bunny",
+						"x": 628,
+						"y": 562,
+						"interactive": true,
+						"scale.x": 1.6,
+						"image": "bunny.png"
+					}
+				}
+			]
 		},
 		{
 			"c": "OrientationTrigger",
 			"p": {
 				"name": "pipesTrigger",
+				"onPortrait": "this.#pipes.recalculateAllPipesPositions",
+				"onLandscape": "this.#pipes.recalculateAllPipesPositions",
 				"landscapeScaleX": 1,
 				"landscapeScaleY": 1,
 				"landscapeAlpha": 1,
